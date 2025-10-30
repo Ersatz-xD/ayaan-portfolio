@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ayaan Ahmed Khan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html">Ayaan Ahmed Khan</a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="mobile-menu-btn" aria-label="Open navigation menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-nav">
+        <button id="close-btn" aria-label="Close navigation menu">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <section id="projects-page" class="container">
+            <h1>My Projects</h1>
+            <p class="page-intro">A selection of my work. You can find more on my GitHub.</p>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>ML-Supervised Learning Repository</h3>
+                        <p class="project-date">Aug 2025 - Sep 2025</p>
+                        <p>A hands-on repository for practicing supervised machine learning in Python, developed alongside the Machine Learning Specialization (Stanford/DeepLearning.AI).</p>
+                        <p>Includes from-scratch implementations (NumPy) and industry-standard approaches (scikit-learn, TensorFlow, XGBoost). Covers regression, classification, ensemble tree models, and deep learning with CNNs.</p>
+                        <div class="project-tags">
+                            <span>Machine Learning</span>
+                            <span>Supervised Learning</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ersatz-xD/ml-supervised" class="btn-secondary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>ML-Unsupervised Learning Repository</h3>
+                        <p class="project-date">Sep 2025 - Sep 2025</p>
+                        <p>A collection of beginner-friendly projects demonstrating unsupervised machine learning techniques applied to real-world datasets:</p>
+                        <ul>
+                            <li><strong>Credit Card Fraud Detection:</strong> Implemented anomaly detection using Multivariate Gaussian & sklearn’s EllipticEnvelope.</li>
+                            <li><strong>Movie Recommender System:</strong> Built a recommender using the MovieLens 100k dataset (Content-Based & Collaborative Filtering).</li>
+                        </ul>
+                        <div class="project-tags">
+                            <span>Machine Learning</span>
+                            <span>Unsupervised Learning</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ersatz-xD/ml-unsupervised" class="btn-secondary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>TypeRush</h3>
+                        <p class="project-date">Jul 2025 - Jul 2025</p>
+                        <p>A terminal-based Typing Speed Test game built in C++. TypeRush displays a paragraph in chunks, tracks your typing speed, and calculates accuracy in real-time. Great for improving typing skills!</p>
+                        <div class="project-tags">
+                            <span>C++</span>
+                            <span>File Systems</span>
+                            <span>File Management</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ersatz-xD/TypeRush" class="btn-secondary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>PawPal</h3>
+                        <p class="project-date">Jun 2025 - Jun 2025</p>
+                        <p>A civic-minded web prototype designed to support animal welfare efforts in Pakistan. Developed as part of an academic initiative, PawPal connects citizens with tools to report cruelty, locate help, and raise awareness.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Project Management</span>
+                            <span>Civic Engagement</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ersatz-xD/PawPal" class="btn-secondary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Redacted Vault</h3>
+                        <p class="project-date">May 2025 - May 2025</p>
+                        <p>A secure desktop vault application disguised as a simple calculator. Users can register using facial recognition or fingerprint (biometric authentication). Once inside, they can add, view, and delete encrypted files securely.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Tkinter</span>
+                            <span>GUI</span>
+                            <span>Cybersecurity</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/C0deCrypt/RedactedVault" class="btn-secondary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Vibe Snitch</h3>
+                        <p class="project-date">May 2025 - May 2025</p>
+                        <p>A modern desktop application that predicts a user's MBTI personality type based on five short text inputs. It combines a trained machine learning model with Gemini AI to deliver rich personality insights.</p>
+                        <div class="project-tags">
+                            <span>Machine Learning</span>
+                            <span>NLP</span>
+                            <span>Python</span>
+                            <span>PyQt</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Ersatz-xD/VibeSnitch-AI" class="btn-secondary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Auth2X</h3>
+                        <p class="project-date">Apr 2025 - Apr 2025</p>
+                        <p>A simple multi-authentication application using face and fingerprint scanning. Explores biometric authentication principles in a clear, concise Python application.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Pycharm</span>
+                            <span>GitHub</span>
+                            <span>Digital Authentication</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/C0deCrypt/Auth2X" class="btn-secondary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>StayTracked - Project Tracking System</h3>
+                        <p class="project-date">Nov 2024 - Dec 2024</p>
+                        <p>A simple Project Tracking System developed in Java with a MySQL database. It helps users manage projects, track progress, and handle team accounts using OOP principles like inheritance and polymorphism.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>Java Swing</span>
+                            <span>SQL</span>
+                            <span>Project Management</span>
+                            <span>NetBeans</span>
+                        </div>
+                        <div class="project-links">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Thumbnails 2024</h3>
+                        <p class="project-date">May 2024 - Jul 2024</p>
+                        <p> Tried different styles, compositions, and visual elements to create engaging and eye-catching thumbnails for freelance work. Always looking to improve!</p>
+                        <div class="project-tags">
+                            <span>Graphic Design</span>
+                            <span>Adobe Photoshop</span>
+                        </div>
+                        <div class="project-links">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ayaan Ahmed Khan. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
+
