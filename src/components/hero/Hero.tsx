@@ -16,31 +16,31 @@ export default function Hero() {
 
   usePointerReveal(revealLayerRef, heroFigureRef, figureRevealRef, canvasRef);
 
-  // hero-figure gets its "show" class ~120ms after the rest, matching main.js
   const figureShow = contentVisible;
 
   return (
     <>
       <Splash phase={phase} />
 
-      <div className="bg-layer base-layer" />
-      <div className="bg-layer reveal-layer" ref={revealLayerRef}>
-        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <g className="grid" opacity={0.5}>
-            <line className="grid-line" x1="0" y1="150" x2="1600" y2="150" />
-            <line className="grid-line" x1="0" y1="450" x2="1600" y2="450" />
-            <line className="grid-line" x1="0" y1="750" x2="1600" y2="750" />
-            <line className="grid-line" x1="200" y1="0" x2="200" y2="900" />
-            <line className="grid-line" x1="600" y1="0" x2="600" y2="900" />
-            <line className="grid-line" x1="1000" y1="0" x2="1000" y2="900" />
-            <line className="grid-line" x1="1400" y1="0" x2="1400" y2="900" />
-          </g>
-          <NetworkGraph />
-        </svg>
-      </div>
-      <canvas id="reveal-canvas" ref={canvasRef} />
-
       <main className="hero">
+        {/* moved inside .hero — was previously a sibling, which is why it stayed pinned across the whole page */}
+        <div className="bg-layer base-layer" />
+        <div className="bg-layer reveal-layer" ref={revealLayerRef}>
+          <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <g className="grid" opacity={0.5}>
+              <line className="grid-line" x1="0" y1="150" x2="1600" y2="150" />
+              <line className="grid-line" x1="0" y1="450" x2="1600" y2="450" />
+              <line className="grid-line" x1="0" y1="750" x2="1600" y2="750" />
+              <line className="grid-line" x1="200" y1="0" x2="200" y2="900" />
+              <line className="grid-line" x1="600" y1="0" x2="600" y2="900" />
+              <line className="grid-line" x1="1000" y1="0" x2="1000" y2="900" />
+              <line className="grid-line" x1="1400" y1="0" x2="1400" y2="900" />
+            </g>
+            <NetworkGraph />
+          </svg>
+        </div>
+        <canvas id="reveal-canvas" ref={canvasRef} />
+
         <div className={`hero-bg-number${contentVisible ? " show" : ""}`} aria-hidden="true">
           ENGINEER
         </div>

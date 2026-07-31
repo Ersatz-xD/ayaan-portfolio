@@ -31,5 +31,9 @@ export function useSplashIntro() {
     };
   }, [reduceMotion]);
 
+ useEffect(() => {
+    document.body.classList.toggle("no-scroll", !contentVisible);
+  }, [contentVisible]);
+
   return { phase, contentVisible, reduceMotion };
 }

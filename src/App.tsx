@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import Header from "./components/layout/Header";
 import MenuPanel from "./components/layout/MenuPanel";
 import Hero from "./components/hero/Hero";
+import EducationView from "./components/views/EducationView";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,6 +26,7 @@ export default function App() {
       <Header menuOpen={menuOpen} onToggleMenu={toggleMenu} />
       <MenuPanel open={menuOpen} />
       <Hero />
+      <EducationView />
     </>
   );
 }

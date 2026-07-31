@@ -73,7 +73,8 @@ button{font-family:inherit;}
 
 
 .bg-layer{
-  position:fixed; inset:0; z-index:0;
+  position:absolute;   
+  inset:0; z-index:0;
   pointer-events:none;
 }
 
@@ -105,7 +106,8 @@ button{font-family:inherit;}
 .reveal-layer .grid-line{ stroke:rgba(0,229,255,0.35); stroke-width:1; }
 
 #reveal-canvas{
-  position:fixed; inset:0; z-index:1;
+  position:absolute;   
+  inset:0; z-index:1;
   pointer-events:none;
   mix-blend-mode:screen;
   opacity:.9;
