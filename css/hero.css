@@ -30,9 +30,7 @@ button{font-family:inherit;}
 
 ::selection{ background:var(--accent); color:#07080A; }
 
-/* ---------------------------------------------- */
-/* SPLASH SCREEN                                    */
-/* ---------------------------------------------- */
+
 #splash{
   position:fixed; inset:0; z-index:9999;
   display:flex; flex-direction:column;
@@ -73,9 +71,7 @@ button{font-family:inherit;}
   text-transform:uppercase; opacity:.8; white-space:nowrap;
 }
 
-/* ---------------------------------------------- */
-/* BACKGROUND LAYERS                                */
-/* ---------------------------------------------- */
+
 .bg-layer{
   position:fixed; inset:0; z-index:0;
   pointer-events:none;
@@ -115,9 +111,7 @@ button{font-family:inherit;}
   opacity:.9;
 }
 
-/* ---------------------------------------------- */
-/* HEADER / NAV                                     */
-/* ---------------------------------------------- */
+
 header{
   position:fixed; top:0; left:0; right:0; z-index:500;
   display:flex; justify-content:space-between; align-items:flex-start;
@@ -155,9 +149,7 @@ body.menu-open .burger-btn span:nth-child(1){ transform: translateY(6.5px) rotat
 body.menu-open .burger-btn span:nth-child(2){ opacity:0; }
 body.menu-open .burger-btn span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
 
-/* ---------------------------------------------- */
-/* MENU PANEL                                       */
-/* ---------------------------------------------- */
+
 .menu-panel{
   position:fixed; top:16px; right:16px; z-index:400;
   width:min(380px, calc(100vw - 32px));
@@ -217,16 +209,13 @@ body.menu-open .menu-panel{
 }
 .menu-footer .socials a:hover::after{ width:100%; }
 
-/* ---------------------------------------------- */
-/* HERO SHELL                                       */
-/* ---------------------------------------------- */
+
 .hero{
   position:relative; z-index:10;
   min-height:100vh;
   overflow:hidden;
 }
 
-/* Giant faint background number/word — sits behind the portrait */
 .hero-bg-number{
   position:fixed;
   left:50%;
@@ -248,10 +237,6 @@ body.menu-open .menu-panel{
   transform: translate(-50%, 0);
 }
 
-/* ---------------------------------------------- */
-/* NIGHTWING FIGURE — fixed, full-bleed bottom-right,*/
-/* above the background, behind the text/nav        */
-/* ---------------------------------------------- */
 .hero-figure{
   position:fixed;
   right: clamp(-40px, 2vw, 70px);
@@ -312,9 +297,7 @@ body.menu-open .menu-panel{
   100%{ top:100%; opacity:0; }
 }
 
-/* ---------------------------------------------- */
-/* TOP-LEFT — role / location tag                   */
-/* ---------------------------------------------- */
+
 .hero-topline{
   position:fixed;
   left: clamp(20px,6vw,80px);
@@ -346,20 +329,18 @@ body.menu-open .menu-panel{
   line-height:1.15;
 }
 
-/* ---------------------------------------------- */
-/* RIGHT SIDE — stat snapshot                       */
-/* ---------------------------------------------- */
+
 .hero-stats{
   position:fixed;
   right: clamp(20px,6vw,80px);
   top:50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
   z-index:5;
   text-align:right;
   opacity:0;
   transition: opacity .6s ease .2s, transform .6s ease .2s;
 }
-.hero-stats.show{ opacity:1; }
+.hero-stats.show{ opacity:2; }
 
 .stats-label{
   display:block;
@@ -386,9 +367,7 @@ body.menu-open .menu-panel{
   margin-top:2px;
 }
 
-/* ---------------------------------------------- */
-/* BOTTOM — giant name + pitch/CTA                  */
-/* ---------------------------------------------- */
+
 .hero-bottom{
   position:fixed;
   left:0; right:0; bottom:0;
@@ -471,9 +450,7 @@ body.menu-open .menu-panel{
 }
 .cta-row.show{ opacity:1; transform:translateY(0); }
 
-/* ---------------------------------------------- */
-/* PILL CTA BUTTONS                                 */
-/* ---------------------------------------------- */
+
 .pill-btn{
   position:relative;
   display:inline-flex; align-items:center; gap:14px;
@@ -520,9 +497,7 @@ body.menu-open .menu-panel{
 
 .pill-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:4px; }
 
-/* ---------------------------------------------- */
-/* SCROLL HINT                                      */
-/* ---------------------------------------------- */
+
 .scroll-hint{
   position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:7;
   display:flex; align-items:center; gap:10px;
@@ -538,9 +513,6 @@ body.menu-open .menu-panel{
 }
 @keyframes scrollline{ 0%{left:-100%;} 50%{left:0;} 100%{left:100%;} }
 
-/* ---------------------------------------------- */
-/* RESPONSIVE                                       */
-/* ---------------------------------------------- */
 @media (max-width: 900px){
   .hero-topline{ top:104px; max-width:220px; }
   .hero-stats{ top:auto; bottom:auto; transform:none; right:clamp(16px,5vw,24px); top:220px; text-align:right; }
@@ -571,9 +543,6 @@ body.menu-open .menu-panel{
   .hero-stats{ display:none; }
 }
 
-/* ---------------------------------------------- */
-/* REDUCED MOTION                                   */
-/* ---------------------------------------------- */
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
   .headline .word-inner{ filter:none !important; }

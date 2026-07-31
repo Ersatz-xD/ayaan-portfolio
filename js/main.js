@@ -1,23 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
-    const closeBtn = document.getElementById('close-btn');
 
-    if (mobileMenuBtn && mobileNav && closeBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.add('open');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            mobileNav.classList.remove('open');
-        });
-    }
-});
 (function(){
   "use strict";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- SPLASH ---------- */
   var splash = document.getElementById("splash");
   var body = document.body;
 
@@ -30,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("ctaRow").classList.add("show");
     document.getElementById("scrollHint").classList.add("show");
     buildHeadline();
-    // Figure wipe-reveal fires slightly after the topline, alongside the headline.
     setTimeout(function(){
       document.getElementById("heroFigure").classList.add("show");
     }, reduceMotion ? 0 : 120);
@@ -54,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(endSplash, 1350);
   }
 
-  /* ---------- HEADLINE WORD-REVEAL ---------- */
   function buildHeadline(){
     var el = document.getElementById("headline");
     var text = "I architect resilient full-stack systems, autonomous AI pipelines, and high-performance algorithms.";
@@ -77,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- BURGER MENU ---------- */
   var burgerBtn = document.getElementById("burgerBtn");
   var menuPanel = document.getElementById("menuPanel");
   burgerBtn.addEventListener("click", function(){
@@ -93,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ---------- NEURAL NETWORK SVG (ambient reveal layer content) ---------- */
   (function buildNet(){
     var g = document.getElementById("netGroup");
     var layers = [ [120,450],[420,180,450,720],[760,120,320,580,780],[1100,180,450,720],[1400,450] ];
@@ -124,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     g.appendChild(frag);
   })();
 
-  /* ---------- CANVAS SPOTLIGHT + FIGURE SCAN (mouse-tracked mask) ---------- */
   var canvas = document.getElementById("reveal-canvas");
   var ctx = canvas.getContext("2d");
   var revealLayer = document.getElementById("revealLayer");
@@ -156,20 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
       smooth.x = mouse.x; smooth.y = mouse.y;
     }
 
-    // Drive the CSS mask on the ambient background reveal layer.
     revealLayer.style.setProperty("--mx", smooth.x + "px");
     revealLayer.style.setProperty("--my", smooth.y + "px");
 
-    // Drive the CSS mask on the Nightwing reveal (red) image — coordinates
-    // are computed relative to the figure's own box so the mask lines up
-    // with the art regardless of scroll position or viewport size.
+    
     var rect = heroFigure.getBoundingClientRect();
     var fx = smooth.x - rect.left;
     var fy = smooth.y - rect.top;
     figureReveal.style.setProperty("--fx", fx + "px");
     figureReveal.style.setProperty("--fy", fy + "px");
 
-    // Paint a lightweight scanner ring on the canvas for extra cybernetic flavor.
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     ctx.clearRect(0,0,canvas.width,canvas.height);
     if(hasMoved){
