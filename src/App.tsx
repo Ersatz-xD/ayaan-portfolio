@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import MenuPanel from "./components/layout/MenuPanel";
-import Hero from "./components/hero/Hero";
-import EducationView from "./components/views/EducationView";
+import Home from "./pages/Home";
+import AllProjects from "./pages/AllProjects";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,11 +23,13 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <BrowserRouter>
       <Header menuOpen={menuOpen} onToggleMenu={toggleMenu} />
       <MenuPanel open={menuOpen} />
-      <Hero />
-      <EducationView />
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<AllProjects />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
