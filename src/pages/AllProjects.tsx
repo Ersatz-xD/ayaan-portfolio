@@ -4,7 +4,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PROJECTS, type Project } from "../data/projects";
 import { useReducedMotion } from "../hooks/useReducedMotion";
+import { useNeuralMask } from "../hooks/useNeuralMask";
+import NetworkGraph from "../components/hero/NetworkGraph";
 import "../styles/projects.css";
+import "../styles/allprojects.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +23,11 @@ export default function AllProjects() {
   const reduceMotion = useReducedMotion();
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
-  const gridRef = useRef<HTMLDivElement>(null);
+  const showcaseRef = useRef<HTMLDivElement>(null);
+  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const maskRef = useRef<HTMLDivElement>(null);
+
+  useNeuralMask(maskRef);
 
   const filtered = useMemo(() => {
     return PROJECTS.filter((p) => {
@@ -34,16 +41,30 @@ export default function AllProjects() {
     });
   }, [filter, query]);
 
+  rowRefs.current = [];
+
   useEffect(() => {
-    if (reduceMotion || !gridRef.current) return;
+    if (reduceMotion || !showcaseRef.current) return;
     const ctx = gsap.context(() => {
-      const cards = gridRef.current!.querySelectorAll(".allproj-card");
-      gsap.fromTo(
-        cards,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: "power2.out" }
-      );
-    }, gridRef);
+      rowRefs.current.forEach((row) => {
+        if (!row) return;
+        gsap.fromTo(
+          row,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: row,
+              start: "top 82%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    }, showcaseRef);
     return () => ctx.revert();
   }, [filtered, reduceMotion]);
 
@@ -52,7 +73,11 @@ export default function AllProjects() {
 
   return (
     <div className="allproj-page">
-      <div className="allproj-bg-grid" aria-hidden="true" />
+      <div className="allproj-neural-bg" ref={maskRef} aria-hidden="true">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <NetworkGraph />
+        </svg>
+      </div>
 
       <Link className="allproj-back" to="/">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,6 +87,7 @@ export default function AllProjects() {
       </Link>
 
       <div className="allproj-hero">
+        <div className="cyber-grid-accent" aria-hidden="true" />
         <div className="allproj-hero-left">
           <span className="allproj-eyebrow">Full Archive</span>
           <h1 className="allproj-title">
@@ -117,9 +143,43 @@ export default function AllProjects() {
         </div>
       </div>
 
-      <div className="allproj-grid" ref={gridRef}>
+      <div className="allproj-showcase" ref={showcaseRef}>
         {filtered.map((project, i) => (
-          <ProjectListCard key={project.id} project={project} index={i + 1} />
+          <div
+            className={`allproj-row${i % 2 !== 0 ? " reverse" : ""}`}
+            key={project.id}
+            ref={(el) => (rowRefs.current[i] = el)}
+          >
+            <div className="allproj-row-text">
+              <span className="allproj-row-index">
+                {String(i + 1).padStart(2, "0")} <span className="accent">//</span>
+              </span>
+              {project.metric && <span className="allproj-row-metric">{project.metric}</span>}
+              <h3 className="allproj-row-title">{project.title}</h3>
+              <p className="allproj-row-date">{project.date}</p>
+              <div className="allproj-row-stack">
+                {project.tech.map((t) => (
+                  <span className="proj-pill" key={t}>{t}</span>
+                ))}
+              </div>
+              <p className="allproj-row-desc">{project.description}</p>
+              <a className="proj-btn proj-btn-primary" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                View GitHub Repository
+                <svg className="proj-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+
+            <div className="allproj-row-cluster">
+              <div className="cluster-orbit" aria-hidden="true" />
+              {project.category === "ai" ? (
+                <AIClusterMockup project={project} />
+              ) : (
+                <FullstackClusterMockup project={project} />
+              )}
+            </div>
+          </div>
         ))}
       </div>
 
@@ -141,28 +201,104 @@ export default function AllProjects() {
   );
 }
 
-function ProjectListCard({ project, index }: { project: Project; index: number }) {
+function AIClusterMockup({ project }: { project: Project }) {
+  const bars = [72, 91, 58, 84, 67];
   return (
-    <div className="allproj-card">
-      <span className="allproj-card-index">{String(index).padStart(2, "0")}</span>
-      <div className="allproj-card-body">
-        <div className="allproj-card-top">
-          <span className="allproj-card-date">{project.date}</span>
-          {project.metric && <span className="allproj-card-metric">{project.metric}</span>}
+    <div className="cluster-wrap">
+      <div className="cluster-card cluster-card-back">
+        <div className="cluster-card-header">
+          <span className="cluster-dot red" />
+          <span className="cluster-dot yellow" />
+          <span className="cluster-dot green" />
+          <span className="cluster-card-label">vector_store.embed</span>
         </div>
-        <h3 className="allproj-card-title">{project.title}</h3>
-        <p className="allproj-card-desc">{project.description}</p>
-        <div className="allproj-card-stack">
-          {project.tech.map((t) => (
-            <span className="proj-pill" key={t}>{t}</span>
+        <div className="cluster-node-graph">
+          <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#1A8CFF" strokeWidth="1" opacity="0.5">
+              <line x1="20" y1="60" x2="90" y2="20" />
+              <line x1="20" y1="60" x2="90" y2="60" />
+              <line x1="20" y1="60" x2="90" y2="100" />
+              <line x1="90" y1="20" x2="160" y2="45" />
+              <line x1="90" y1="60" x2="160" y2="45" />
+              <line x1="90" y1="60" x2="160" y2="85" />
+              <line x1="90" y1="100" x2="160" y2="85" />
+            </g>
+            <circle cx="20" cy="60" r="6" fill="#00E5FF" />
+            <circle cx="90" cy="20" r="4" fill="#1A8CFF" />
+            <circle cx="90" cy="60" r="4" fill="#1A8CFF" />
+            <circle cx="90" cy="100" r="4" fill="#1A8CFF" />
+            <circle cx="160" cy="45" r="4.5" fill="#00E5FF" />
+            <circle cx="160" cy="85" r="4.5" fill="#00E5FF" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="cluster-card cluster-card-front">
+        <div className="cluster-card-header">
+          <span className="cluster-card-label mono">{project.id}.metrics</span>
+        </div>
+        <div className="cluster-metrics">
+          {bars.map((v, i) => (
+            <div className="cluster-metric-row" key={i}>
+              <span className="cluster-metric-tag">feat_{i + 1}</span>
+              <div className="cluster-metric-track">
+                <div className="cluster-metric-fill" style={{ width: `${v}%` }} />
+              </div>
+              <span className="cluster-metric-val">{v}%</span>
+            </div>
           ))}
         </div>
-        <a className="proj-btn proj-btn-primary" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-          View GitHub Repository
-          <svg className="proj-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
+        {project.metric && (
+          <div className="cluster-badge-row">
+            <span className="cluster-result-badge">{project.metric}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function FullstackClusterMockup({ project }: { project: Project }) {
+  return (
+    <div className="cluster-wrap">
+      <div className="cluster-card cluster-card-back">
+        <div className="cluster-card-header">
+          <span className="cluster-dot red" />
+          <span className="cluster-dot yellow" />
+          <span className="cluster-dot green" />
+          <span className="cluster-card-label mono">bash — ayaan@nightwing-os:~</span>
+        </div>
+        <div className="cluster-terminal">
+          <p><span className="term-prompt">$</span> deploy --target={project.id}</p>
+          <p className="term-line">→ compiling build artifacts…</p>
+          <p className="term-line">→ running migrations… <span className="term-ok">OK</span></p>
+          <p className="term-line">→ status: <span className="term-ok">200 healthy</span></p>
+        </div>
+      </div>
+
+      <div className="cluster-card cluster-card-front">
+        <div className="cluster-card-header">
+          <span className="cluster-card-label">REST Endpoints</span>
+        </div>
+        <div className="cluster-endpoints">
+          <div className="cluster-endpoint">
+            <span className="endpoint-method get">GET</span>
+            <span className="endpoint-path">/api/v1/{project.id}</span>
+          </div>
+          <div className="cluster-endpoint">
+            <span className="endpoint-method post">POST</span>
+            <span className="endpoint-path">/api/v1/{project.id}/sync</span>
+          </div>
+          <div className="cluster-endpoint">
+            <span className="endpoint-method get">GET</span>
+            <span className="endpoint-path">/api/v1/{project.id}/status</span>
+          </div>
+        </div>
+        {project.metric && (
+          <div className="cluster-badge-row">
+            <span className="cluster-result-badge">{project.metric}</span>
+          </div>
+        )}
       </div>
     </div>
   );
