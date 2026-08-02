@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
     category: "ai",
     tech: ["scikit-learn", "Hopsworks", "GitHub Actions", "FastAPI", "React", "TreeSHAP"],
     metric: "72-Hour AQI Forecasts",
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/Pearl-AQI-Engine",
     description:
       "Architected a serverless MLOps pipeline for automated CI/CD and built a FastAPI/React dashboard using TreeSHAP for explainable 72-hour AQI forecasts.",
   },
@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     category: "ai",
     tech: ["Python", "FastAPI", "ChromaDB", "Gemini API", "scikit-learn"],
     metric: "96% Precision@3 Accuracy",
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/BinaryVibe/prof-gpt",
     description:
       "Built a Full-Stack RAG pipeline with dynamic PDF ingestion and ChromaDB vector search, incorporating a scikit-learn intent classifier and LLM anti-hallucination guardrails.",
   },
@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
     date: "Sep 2025",
     category: "ai",
     tech: ["Python", "NumPy"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/ml-unsupervised",
     description:
       "Implemented anomaly detection for fraud and a Collaborative Filtering recommender system using Multivariate Gaussian distributions.",
   },
@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     date: "Aug 2025",
     category: "ai",
     tech: ["NumPy", "TensorFlow", "XGBoost"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/ml-supervised",
     description:
       "Engineered regression, classification, and CNN architectures from scratch using NumPy, TensorFlow, and XGBoost.",
   },
@@ -59,7 +59,7 @@ export const PROJECTS: Project[] = [
     category: "ai",
     tech: ["Python", "PyQt5", "Gemini API", "NLP"],
     metric: "85% MBTI Accuracy",
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/VibeSnitch-AI",
     description:
       "Engineered an AI-driven platform using PyQt5 and the Gemini API to predict MBTI types through NLP sentiment analysis.",
   },
@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
     category: "ai",
     tech: ["Python", "OpenCV", "Computer Vision"],
     metric: "Real-Time Tracking",
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/C0deCrypt/Auth2X",
     description:
       "Built a multi-factor authentication system utilizing OpenCV computer vision for real-time identity verification and tracking.",
   },
@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
     date: "Mar 2026",
     category: "fullstack",
     tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/BroBroke",
     description:
       "Built and deployed a full-stack MERN application to track and balance shared financial records among peers.",
   },
@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     category: "fullstack",
     tech: ["React.js", "Bootstrap"],
     metric: "100% Mobile Responsive",
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/ACM-CUI-Wah/ACM-CUI-Web",
     description:
       "Developed and deployed the official student chapter portal using React.js and Bootstrap, ensuring full mobile responsiveness.",
   },
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     category: "fullstack",
     tech: ["Laravel", "PHP", "MySQL"],
     metric: "High-Concurrency",
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/BinaryVibe/edugate-pk",
     description:
       "Engineered a scalable web admission platform using Laravel and MySQL with an Admin Dashboard for real-time university data management.",
   },
@@ -112,7 +112,7 @@ export const PROJECTS: Project[] = [
     date: "Dec 2025",
     category: "fullstack",
     tech: ["Flutter"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/BinaryVibe/fyp-hub",
     description:
       "Developed a cross-platform mobile application in Flutter with interactive project tracking and real-time notifications.",
   },
@@ -122,7 +122,7 @@ export const PROJECTS: Project[] = [
     date: "Nov 2025",
     category: "fullstack",
     tech: ["PHP", "MySQL"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/campus-crave",
     description:
       "Designed a high-concurrency web portal with optimized routing for discreet lecture-time cafeteria ordering.",
   },
@@ -132,7 +132,7 @@ export const PROJECTS: Project[] = [
     date: "Jun 2025",
     category: "fullstack",
     tech: ["JavaScript", "CSS"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/PawPal",
     description:
       "Designed a full-stack civic-tech web prototype to streamline animal cruelty reporting and shelter discovery.",
   },
@@ -142,7 +142,7 @@ export const PROJECTS: Project[] = [
     date: "May 2025",
     category: "fullstack",
     tech: ["Python", "AES", "MySQL", "Tkinter"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/C0deCrypt/RedactedVault",
     description:
       "Developed a secure Python backend utilizing AES encryption, biometric multi-factor authentication, and MySQL with a Tkinter GUI.",
   },
@@ -152,7 +152,7 @@ export const PROJECTS: Project[] = [
     date: "Apr 2025",
     category: "fullstack",
     tech: ["MongoDB", "Gemini API"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/Ersatz-xD/Padhlo-ai",
     description:
       "Architected an AI-powered study tool leveraging MongoDB and the Gemini API for automated quiz and summary generation.",
   },
@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
     date: "Dec 2024",
     category: "fullstack",
     tech: ["Java", "MySQL"],
-    githubUrl: "https://github.com/Ersatz-xD",
+    githubUrl: "https://github.com/BinaryVibe/StayTracked",
     description:
       "Created a Java project management suite implementing OOP principles and MySQL database integration.",
   },
