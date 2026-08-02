@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { useEduPointerReveal } from "../../hooks/useEduPointerReveal";
 import NetworkGraph from "../hero/NetworkGraph";
 import "../../styles/education.css";
 
@@ -34,6 +35,10 @@ export default function EducationView() {
   const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const revealLayerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEduPointerReveal(sectionRef, revealLayerRef, canvasRef);
 
   useEffect(() => {
     if (reduceMotion || !sectionRef.current) return;
@@ -84,7 +89,7 @@ export default function EducationView() {
 
   return (
     <section id="education" className="edu-section" ref={sectionRef}>
-      <div className="edu-bg-net" aria-hidden="true">
+      <div className="edu-bg-net" ref={revealLayerRef} aria-hidden="true">
         <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <g opacity={0.5}>
             <line className="grid-line" x1="0" y1="150" x2="1600" y2="150" />
@@ -98,14 +103,25 @@ export default function EducationView() {
           <NetworkGraph />
         </svg>
       </div>
+      <canvas className="edu-reveal-canvas" ref={canvasRef} aria-hidden="true" />
 
       <div className="edu-header">
         <div className="edu-badge-num">02</div>
         <h2 className="edu-headline">
-          <span className="edu-accent-cyan">E</span>ducation //{" "}
-          <span className="edu-accent-blue">B</span>ackground
+          Education // <span className="edu-accent-cyan">Background</span>
         </h2>
         <EducationGraphic />
+      </div>
+
+      <div className="edu-fill-space">
+        <br />
+        <HUDCube />
+        <br />
+        <div className="edu-philosophy">
+          <br />
+          <span className="edu-philosophy-tag">// Academic Philosophy</span>
+          
+        </div>
       </div>
 
       <div className="edu-timeline-wrap">
@@ -187,5 +203,28 @@ function EducationGraphic() {
         <circle className="edu-graphic-node n1" cx="190" cy="180" r="4.5" fill="#00E5FF" />
       </g>
     </svg>
+  );
+}
+function HUDCube() {
+  const reduceMotion = useReducedMotion();
+  return (
+    <div className="hud-cube-wrap">
+      <span className="hud-cube-label">[SYS_CUBE // ARCH_02]</span>
+      <br />
+      <div className={`hud-cube-scene${reduceMotion ? " reduced" : ""}`}>
+        <div className="hud-cube">
+          <div className="cube-face front" />
+          <div className="cube-face back" />
+          <div className="cube-face right" />
+          <div className="cube-face left" />
+          <div className="cube-face top" />
+          <div className="cube-face bottom" />
+        </div>
+        <span className="hud-corner tl" />
+        <span className="hud-corner tr" />
+        <span className="hud-corner bl" />
+        <span className="hud-corner br" />
+      </div>
+    </div>
   );
 }
