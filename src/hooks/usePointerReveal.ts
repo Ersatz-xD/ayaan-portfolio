@@ -11,7 +11,8 @@ export function usePointerReveal(
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = canvas?.parentElement || revealLayerRef.current?.parentElement;
+    if (!canvas || !container) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -21,11 +22,12 @@ export function usePointerReveal(
     let rafId = 0;
 
     function resizeCanvas() {
+      const rect = container!.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas!.width = window.innerWidth * dpr;
-      canvas!.height = window.innerHeight * dpr;
-      canvas!.style.width = window.innerWidth + "px";
-      canvas!.style.height = window.innerHeight + "px";
+      canvas!.width = rect.width * dpr;
+      canvas!.height = rect.height * dpr;
+      canvas!.style.width = rect.width + "px";
+      canvas!.style.height = rect.height + "px";
     }
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
@@ -37,6 +39,11 @@ export function usePointerReveal(
     }
     window.addEventListener("pointermove", onPointerMove, { passive: true });
 
+    function onPointerLeave() {
+      hasMoved = false;
+    }
+    document.addEventListener("pointerleave", onPointerLeave);
+
     function loop() {
       if (!reduceMotion) {
         smooth.x += (mouse.x - smooth.x) * 0.1;
@@ -46,20 +53,29 @@ export function usePointerReveal(
         smooth.y = mouse.y;
       }
 
-      revealLayerRef.current?.style.setProperty("--mx", `${smooth.x}px`);
-      revealLayerRef.current?.style.setProperty("--my", `${smooth.y}px`);
+      const rect = container!.getBoundingClientRect();
+      const localX = smooth.x - rect.left;
+      const localY = smooth.y - rect.top;
 
-      const rect = heroFigureRef.current?.getBoundingClientRect();
-      if (rect) {
-        figureRevealRef.current?.style.setProperty("--fx", `${smooth.x - rect.left}px`);
-        figureRevealRef.current?.style.setProperty("--fy", `${smooth.y - rect.top}px`);
+      revealLayerRef.current?.style.setProperty("--mx", `${localX}px`);
+      revealLayerRef.current?.style.setProperty("--my", `${localY}px`);
+
+      const figRect = heroFigureRef.current?.getBoundingClientRect();
+      if (figRect) {
+        figureRevealRef.current?.style.setProperty("--fx", `${smooth.x - figRect.left}px`);
+        figureRevealRef.current?.style.setProperty("--fy", `${smooth.y - figRect.top}px`);
       }
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       ctx.clearRect(0, 0, canvas!.width, canvas!.height);
-      if (hasMoved) {
-        const x = smooth.x * dpr;
-        const y = smooth.y * dpr;
+
+      const inBounds =
+        localX >= 0 && localX <= rect.width &&
+        localY >= 0 && localY <= rect.height;
+
+      if (hasMoved && inBounds) {
+        const x = localX * dpr;
+        const y = localY * dpr;
         const r = 90 * dpr;
         ctx.save();
         ctx.strokeStyle = "rgba(0,229,255,0.55)";
@@ -80,6 +96,7 @@ export function usePointerReveal(
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerleave", onPointerLeave);
       cancelAnimationFrame(rafId);
     };
   }, [reduceMotion, revealLayerRef, heroFigureRef, figureRevealRef, canvasRef]);
