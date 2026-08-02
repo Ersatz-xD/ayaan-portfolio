@@ -1,15 +1,27 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { PROJECTS, FEATURED_PROJECT_IDS } from "../../data/projects";
 import ProjectCard from "../projects/ProjectCard";
+import { useLocalNeuralMask } from "../../hooks/useLocalNeuralMask";
+import NetworkGraph from "../hero/NetworkGraph";
 import "../../styles/projects.css";
 
 export default function ProjectsView() {
+  const maskRef = useRef<HTMLDivElement>(null);
+  useLocalNeuralMask(maskRef);
+
   const featured = FEATURED_PROJECT_IDS
     .map((id) => PROJECTS.find((p) => p.id === id))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   return (
     <section id="projects" className="proj-section">
+      <div className="proj-bg-net" ref={maskRef} aria-hidden="true">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <NetworkGraph />
+        </svg>
+      </div>
+
       <div className="proj-header">
         <div className="proj-badge-num">04</div>
         <h2 className="proj-headline">
