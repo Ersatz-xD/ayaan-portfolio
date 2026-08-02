@@ -1,0 +1,191 @@
+.proj-section{
+  position:relative;
+  overflow:hidden;
+  padding: 140px clamp(20px,6vw,80px) 120px;
+}
+
+.proj-header{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:32px;
+  margin-bottom:56px;
+}
+
+.proj-badge-num{
+  width:76px; height:76px;
+  border-radius:50%;
+  border:1px solid rgba(244,246,249,0.18);
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; font-weight:700; letter-spacing:-0.02em;
+  color:var(--muted);
+  flex-shrink:0;
+}
+
+.proj-headline{
+  font-size:clamp(28px, 3.6vw, 48px);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  color:var(--text);
+}
+.proj-headline .accent{ color:var(--accent); }
+
+.proj-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+  gap:28px;
+}
+
+.proj-card{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  background:rgba(11,14,20,0.55);
+  border:1px solid rgba(244,246,249,0.08);
+  border-radius:20px;
+  padding:28px 30px;
+  backdrop-filter:blur(14px);
+  transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.proj-card:hover{
+  border-color:rgba(0,229,255,0.35);
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px -20px rgba(0,229,255,0.2);
+}
+
+.proj-card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.proj-card-date{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.proj-card-metric{
+  font-size:11px;
+  letter-spacing:.03em;
+  color:var(--bg);
+  background:linear-gradient(90deg, var(--accent), var(--accent-2));
+  padding:5px 12px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+.proj-card-title{
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:-0.015em;
+  color:var(--text);
+  line-height:1.25;
+}
+
+.proj-card-desc{
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.65;
+  flex-grow:1;
+}
+
+.proj-card-stack{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.proj-pill{
+  font-size:11px;
+  letter-spacing:.04em;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(244,246,249,0.16);
+  background:rgba(11,14,20,0.55);
+  color:var(--muted);
+}
+
+.proj-btn{
+  align-self:flex-start;
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:11px 18px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  border:1px solid transparent;
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+  margin-top:4px;
+}
+.proj-btn-primary{
+  color:var(--bg);
+  background:var(--accent);
+}
+.proj-btn-primary:hover{
+  border-color:#00E5FF;
+  box-shadow:0 0 22px rgba(0,229,255,0.5);
+  transform:translateY(-2px);
+}
+.proj-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+.proj-btn-icon{
+  width:13px; height:13px;
+  transition:transform .3s ease;
+}
+.proj-btn:hover .proj-btn-icon{ transform:rotate(45deg); }
+
+.proj-footer{
+  position:relative;
+  z-index:1;
+  display:flex;
+  justify-content:center;
+  margin-top:56px;
+}
+
+.proj-viewall{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 28px;
+  border-radius:999px;
+  border:1px solid rgba(244,246,249,0.2);
+  color:var(--text);
+  background:rgba(244,246,249,0.05);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+.proj-viewall:hover{
+  border-color:rgba(0,229,255,0.5);
+  box-shadow:0 0 20px rgba(0,229,255,0.3);
+  transform:translateY(-2px);
+}
+
+
+.proj-bg-net{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.5;
+  -webkit-mask-image: radial-gradient(circle 350px at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 100%);
+  mask-image: radial-gradient(circle 350px at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 100%);
+}
+.proj-bg-net svg{ width:100%; height:100%; display:block; }
+.proj-bg-net .node{ fill:var(--accent); filter:drop-shadow(0 0 6px var(--accent)); }
+.proj-bg-net .link{ stroke:var(--accent-2); stroke-width:1; opacity:.75; filter:drop-shadow(0 0 3px var(--accent-2)); }
+
+@media (prefers-reduced-motion: reduce){
+  .proj-bg-net{ opacity:.2; -webkit-mask-image:none; mask-image:none; }
+}
