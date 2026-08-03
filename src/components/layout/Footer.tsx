@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="site-footer">
@@ -26,9 +27,11 @@ export default function Footer() {
       <div className="footer-bottom">
         <nav className="footer-nav" aria-label="Footer navigation">
           
-          <a href="/#experience">Experience</a>
-          <a href="/projects">All Projects</a>
-          <a href="/credentials">Credentials</a>
+          <nav className="footer-nav" aria-label="Footer navigation">
+  <a href="#experience">Experience</a>
+  <Link to="/projects">All Projects</Link>
+  <Link to="/credentials">Credentials</Link>
+</nav>
         </nav>
         <span className="footer-meta">© {new Date().getFullYear()} Ayaan Ahmed Khan — Built with React &amp; TypeScript</span>
       </div>

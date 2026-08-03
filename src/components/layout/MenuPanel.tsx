@@ -15,11 +15,11 @@ export default function MenuPanel({ open }: MenuPanelProps) {
     <nav className="menu-panel" aria-hidden={!open}>
       <nav>
         {LINKS.map((l) => (
-          <a key={l.idx} href={l.href}>
-            <span className="idx">{l.idx}</span>
-            {l.label}
-          </a>
-        ))}
+  <Link key={l.idx} to={l.href}>
+    <span className="idx">{l.idx}</span>
+    {l.label}
+  </Link>
+))}
         <Link to="/contact">
           <span className="idx">04</span>
           Terminal Contact

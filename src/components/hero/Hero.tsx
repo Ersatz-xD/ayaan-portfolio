@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 import Splash from "./Splash";
 import NetworkGraph from "./NetworkGraph";
@@ -105,18 +106,14 @@ const canvasRef = useRef<HTMLCanvasElement>(null!);
               distributed systems — from FastAPI services to autonomous agent architectures.
             </p>
             <div className={`cta-row${contentVisible ? " show" : ""}`}>
-              <a className="pill-btn primary" href="/contact">
-                <span className="pill-fill" />
-                <span className="pill-label">
-                  <span className="label-base">Let's Connect</span>
-                  <span className="label-mask"><span>Let's Connect</span></span>
-                </span>
-                <span className="pill-icon">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#F4F6F9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </a>
+             <Link className="pill-btn primary" to="/contact">
+  <span className="pill-fill" />
+  <span className="pill-label">
+    <span className="label-base">Let's Connect</span>
+    <span className="label-mask"><span>Let's Connect</span></span>
+  </span>
+  {/* ...icon svg... */}
+</Link>
               
             </div>
           </div>
