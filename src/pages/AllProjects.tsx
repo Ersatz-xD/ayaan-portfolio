@@ -23,10 +23,10 @@ export default function AllProjects() {
   const reduceMotion = useReducedMotion();
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
-  const showcaseRef = useRef<HTMLDivElement>(null);
+  const showcaseRef = useRef<HTMLDivElement>(null!);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const maskRef = useRef<HTMLDivElement>(null);
-
+  const maskRef = useRef<HTMLDivElement>(null!);
+  
   useNeuralMask(maskRef);
 
   const filtered = useMemo(() => {

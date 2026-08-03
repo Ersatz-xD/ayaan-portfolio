@@ -13,7 +13,7 @@ export function usePointerReveal(
     const canvas = canvasRef.current;
     const container = canvas?.parentElement || revealLayerRef.current?.parentElement;
     if (!canvas || !container) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d")!;
     if (!ctx) return;
 
     const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };

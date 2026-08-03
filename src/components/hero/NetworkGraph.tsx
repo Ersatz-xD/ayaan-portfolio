@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import type { JSX } from 'react';
 
 const LAYERS: number[][] = [
   [120, 450],

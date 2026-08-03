@@ -24,8 +24,8 @@ export default function AllCredentials() {
   const reduceMotion = useReducedMotion();
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
-  const gridRef = useRef<HTMLDivElement>(null);
-  const maskRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null!);
+  const maskRef = useRef<HTMLDivElement>(null!);
 
   useNeuralMask(maskRef);
 

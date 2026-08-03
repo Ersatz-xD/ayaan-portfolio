@@ -7,7 +7,7 @@ import NetworkGraph from "../hero/NetworkGraph";
 import "../../styles/projects.css";
 
 export default function ProjectsView() {
-  const maskRef = useRef<HTMLDivElement>(null);
+ const maskRef = useRef<HTMLDivElement>(null!);
   useLocalNeuralMask(maskRef);
 
   const featured = FEATURED_PROJECT_IDS

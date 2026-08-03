@@ -33,10 +33,10 @@ const NODES: EducationNode[] = [
 
 export default function EducationView() {
   const reduceMotion = useReducedMotion();
-  const sectionRef = useRef<HTMLElement>(null);
-  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const revealLayerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const sectionRef = useRef<HTMLElement>(null!);
+const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
+const revealLayerRef = useRef<HTMLDivElement>(null!);
+const canvasRef = useRef<HTMLCanvasElement>(null!);
 
   useEduPointerReveal(sectionRef, revealLayerRef, canvasRef);
 
@@ -147,7 +147,7 @@ export default function EducationView() {
             <div
               className="edu-node"
               key={node.id}
-              ref={(el) => (nodeRefs.current[i] = el)}
+              ref={(el) => {nodeRefs.current[i] = el}}
             >
               <span className="edu-node-dot" aria-hidden="true" />
               <div className="edu-node-content">

@@ -9,10 +9,10 @@ export default function Hero() {
   const { phase, contentVisible, reduceMotion } = useSplashIntro();
   const headline = useHeadlineWords(contentVisible, reduceMotion);
 
-  const revealLayerRef = useRef<HTMLDivElement>(null);
-  const heroFigureRef = useRef<HTMLDivElement>(null);
-  const figureRevealRef = useRef<HTMLImageElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const revealLayerRef = useRef<HTMLDivElement>(null!);
+const heroFigureRef = useRef<HTMLDivElement>(null!);
+const figureRevealRef = useRef<HTMLImageElement>(null!);
+const canvasRef = useRef<HTMLCanvasElement>(null!);
 
   usePointerReveal(revealLayerRef, heroFigureRef, figureRevealRef, canvasRef);
 

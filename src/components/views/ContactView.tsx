@@ -55,7 +55,7 @@ const CARDS: DispatchCard[] = [
 
 export default function ContactView() {
   const reduceMotion = useReducedMotion();
-  const maskRef = useRef<HTMLDivElement>(null);
+  const maskRef = useRef<HTMLDivElement>(null!);
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -153,7 +153,7 @@ export default function ContactView() {
 
         <div className="dispatch-grid">
           {CARDS.map((card, i) => (
-            <div className="dispatch-card" key={card.id} ref={(el) => (cardsRef.current[i] = el)}>
+            <div className="dispatch-card" key={card.id} ref={(el) => {cardsRef.current[i] = el}}>
               <span className="dispatch-card-index">{card.index} //</span>
               <span className="dispatch-card-label">{card.label}</span>
               <p className="dispatch-card-value">{card.value}</p>

@@ -136,7 +136,7 @@ export default function ExperienceView() {
             <div
               className="exp-col"
               key={entry.id}
-              ref={(el) => (colRefs.current[i] = el)}
+              ref={(el) => {colRefs.current[i] = el}}
             >
               <div className="exp-node-dot" aria-hidden="true" />
               <p className="exp-period">{entry.period}</p>
