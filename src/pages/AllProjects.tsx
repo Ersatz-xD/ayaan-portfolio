@@ -26,7 +26,7 @@ export default function AllProjects() {
   const showcaseRef = useRef<HTMLDivElement>(null!);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const maskRef = useRef<HTMLDivElement>(null!);
-  
+
   useNeuralMask(maskRef);
 
   const filtered = useMemo(() => {
@@ -148,7 +148,7 @@ export default function AllProjects() {
           <div
             className={`allproj-row${i % 2 !== 0 ? " reverse" : ""}`}
             key={project.id}
-            ref={(el) => (rowRefs.current[i] = el)}
+            ref={(el) => {rowRefs.current[i] = el}}
           >
             <div className="allproj-row-text">
               <span className="allproj-row-index">
