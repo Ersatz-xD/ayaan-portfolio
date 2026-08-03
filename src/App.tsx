@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import MenuPanel from "./components/layout/MenuPanel";
 import ScrollToTop from "./components/layout/ScrollToTop";
