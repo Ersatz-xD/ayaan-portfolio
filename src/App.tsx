@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import MenuPanel from "./components/layout/MenuPanel";
 import ScrollToTop from "./components/layout/ScrollToTop";
@@ -28,7 +28,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <Header menuOpen={menuOpen} onToggleMenu={toggleMenu} />
       <MenuPanel open={menuOpen} />
@@ -39,6 +39,6 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
