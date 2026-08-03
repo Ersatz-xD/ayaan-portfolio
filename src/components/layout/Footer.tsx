@@ -28,7 +28,6 @@ export default function Footer() {
         <nav className="footer-nav" aria-label="Footer navigation">
           
           <nav className="footer-nav" aria-label="Footer navigation">
-  <a href="#experience">Experience</a>
   <Link to="/projects">All Projects</Link>
   <Link to="/credentials">Credentials</Link>
 </nav>

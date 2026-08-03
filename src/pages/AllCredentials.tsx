@@ -128,11 +128,15 @@ export default function AllCredentials() {
 }
 
 function CredentialCard({ item, index }: { item: Credential; index: number }) {
+  const imageSrc = item.image?.startsWith("/")
+    ? `${import.meta.env.BASE_URL}${item.image.slice(1)}`
+    : item.image;
+
   return (
     <div className="cred-card">
       <div className="cred-card-viewport">
-        {item.image ? (
-          <img src={item.image} alt={item.title} className="cred-card-img" />
+        {imageSrc ? (
+          <img src={imageSrc} alt={item.title} className="cred-card-img" />
         ) : (
           <CredentialBadgePlaceholder />
         )}

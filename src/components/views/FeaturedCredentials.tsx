@@ -5,12 +5,16 @@ import { CREDENTIALS, FEATURED_CREDENTIAL_IDS } from "../../data/credentials";
 import "../../styles/credentials.css";
 
 export default function FeaturedCredentials() {
-  const featured = FEATURED_CREDENTIAL_IDS
-    .map((id) => CREDENTIALS.find((c) => c.id === id))
-    .filter((c): c is NonNullable<typeof c> => Boolean(c));
+  const featured = FEATURED_CREDENTIAL_IDS.map((id) =>
+    CREDENTIALS.find((c) => c.id === id),
+  ).filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   const [activeId, setActiveId] = useState(featured[0]?.id ?? "");
   const active = featured.find((c) => c.id === activeId) ?? featured[0];
+
+  const imageSrc = active?.image?.startsWith("/")
+    ? `${import.meta.env.BASE_URL}${active.image.slice(1)}`
+    : active?.image;
 
   return (
     <section id="credentials" className="cred-section">
@@ -42,8 +46,18 @@ export default function FeaturedCredentials() {
 
           <Link className="cred-cta" to="/credentials">
             View All {CREDENTIALS.length}+ Credentials &amp; Awards
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 17L17 7M17 7H8M17 7V16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </Link>
         </div>
@@ -60,8 +74,12 @@ export default function FeaturedCredentials() {
                   exit={{ opacity: 0, scale: 0.94 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
                 >
-                  {active.image ? (
-                    <img src={active.image} alt={active.title} className="cred-preview-img" />
+                  {imageSrc ? (
+                    <img
+                      src={imageSrc}
+                      alt={active?.title}
+                      className="cred-preview-img"
+                    />
                   ) : (
                     <CredentialPlaceholder />
                   )}
@@ -77,9 +95,27 @@ export default function FeaturedCredentials() {
 
 function CredentialPlaceholder() {
   return (
-    <svg viewBox="0 0 200 200" className="cred-placeholder-svg" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="70" fill="none" stroke="#00E5FF" strokeWidth="1.4" opacity="0.5" />
-      <path d="M100 50 L118 88 L160 94 L129 122 L137 164 L100 143 L63 164 L71 122 L40 94 L82 88 Z" fill="none" stroke="#1A8CFF" strokeWidth="2" strokeLinejoin="round" />
+    <svg
+      viewBox="0 0 200 200"
+      className="cred-placeholder-svg"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="100"
+        cy="100"
+        r="70"
+        fill="none"
+        stroke="#00E5FF"
+        strokeWidth="1.4"
+        opacity="0.5"
+      />
+      <path
+        d="M100 50 L118 88 L160 94 L129 122 L137 164 L100 143 L63 164 L71 122 L40 94 L82 88 Z"
+        fill="none"
+        stroke="#1A8CFF"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
