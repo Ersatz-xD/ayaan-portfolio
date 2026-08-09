@@ -12,6 +12,14 @@
   --fig-radius-out: 190px;
 }
 
+
+.container{
+  width:100%;
+  max-width:1400px;
+  margin-inline:auto;
+  padding-inline:clamp(1.5rem, 5vw, 4rem);
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;}
 body{

@@ -435,6 +435,38 @@
 }
 .allproj-reset:hover{ box-shadow:0 0 16px rgba(0,229,255,0.25); }
 
+@media (max-width: 1440px) and (min-width: 1025px){
+  .allproj-row{
+    gap:40px;
+  }
+  .cluster-wrap{
+    min-height:280px;
+  }
+  .cluster-card{
+    width:min(320px, 85%);
+    padding:14px 16px 18px;
+  }
+  .cluster-card-back{
+    top:-18px;
+    left:-4px;
+  }
+  .cluster-card-front{
+    top:20px;
+    left:16px;
+  }
+  .cluster-card-header{
+    margin-bottom:12px;
+    padding-bottom:10px;
+  }
+  .cluster-metric-row{
+    grid-template-columns:48px 1fr 30px;
+    gap:8px;
+  }
+  .allproj-row-title{
+    font-size:clamp(20px, 2vw, 26px);
+  }
+}
+
 @media (max-width: 1024px){
   .allproj-row{
     grid-template-columns:1fr;
