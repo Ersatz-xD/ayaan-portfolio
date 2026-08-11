@@ -466,7 +466,53 @@
     font-size:clamp(20px, 2vw, 26px);
   }
 }
-
+/* ============ Scaled Laptop 1366px and below ============ */
+@media (max-width: 1366px) and (min-width: 1025px){
+  .allproj-row{
+    grid-template-columns: 1fr 1fr;
+    gap:28px;
+  }
+  .cluster-wrap{
+    min-height:240px;
+  }
+  .cluster-card{
+    width:min(260px, 90%);
+    padding:12px 14px 16px;
+  }
+  .cluster-card-back{
+    top:-12px;
+    left:-2px;
+  }
+  .cluster-card-front{
+    top:16px;
+    left:12px;
+  }
+  .cluster-card-header{
+    margin-bottom:10px;
+    padding-bottom:8px;
+  }
+  .cluster-card-label{
+    font-size:10px;
+  }
+  .cluster-metric-row{
+    grid-template-columns:40px 1fr 26px;
+    gap:6px;
+  }
+  .cluster-metric-tag,
+  .cluster-metric-val{
+    font-size:9px;
+  }
+  .cluster-endpoint{
+    font-size:11px;
+  }
+  .allproj-row-title{
+    font-size:clamp(18px, 1.8vw, 22px);
+  }
+  .allproj-row-desc{
+    font-size:13px;
+    max-width:40ch;
+  }
+}
 @media (max-width: 1024px){
   .allproj-row{
     grid-template-columns:1fr;
