@@ -171,8 +171,6 @@ export const PROJECTS: Project[] = [
 export const FEATURED_PROJECT_IDS = [
   "pearl-aqi",
   "prof-gpt",
-  
-  "acm-website",
-  
-    "padhlo-ai",
+  "redacted-vault",
+  "padhlo-ai",
 ];
