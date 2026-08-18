@@ -187,7 +187,7 @@ export default function ServicesView() {
           <div
             className="service-card"
             key={service.id}
-            ref={(el) => (cardRefs.current[i] = el)}
+            ref={(el) => {cardRefs.current[i] = el}}
           >
             <div className="service-icon">{service.icon}</div>
             <h3 className="service-title">{service.title}</h3>
