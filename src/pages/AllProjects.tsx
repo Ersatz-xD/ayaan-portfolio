@@ -145,8 +145,9 @@ export default function AllProjects() {
 
       <div className="allproj-showcase" ref={showcaseRef}>
         {filtered.map((project, i) => (
-          <div
+                    <div
             className={`allproj-row${i % 2 !== 0 ? " reverse" : ""}`}
+            id={project.id}
             key={project.id}
             ref={(el) => {rowRefs.current[i] = el}}
           >

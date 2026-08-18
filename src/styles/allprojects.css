@@ -196,6 +196,7 @@
   gap:56px;
   align-items:center;
   opacity:0;
+  scroll-margin-top: 100px;
 }
 
 .allproj-row-text{
