@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,7 +15,7 @@ interface Service {
   proofTag: string;
   proofName: string;
   projectId: string;
-  icon: JSX.Element;
+  icon: ReactNode;
 }
 
 const SERVICES: Service[] = [
