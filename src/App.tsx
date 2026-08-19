@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { Routes, Route, HashRouter } from "react-router-dom";
-import Header from "./components/layout/Header";
-import MenuPanel from "./components/layout/MenuPanel";
+import { Routes, Route, HashRouter} from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
@@ -31,8 +30,7 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
-      <Header menuOpen={menuOpen} onToggleMenu={toggleMenu} />
-      <MenuPanel open={menuOpen} />
+      <Navbar menuOpen={menuOpen} onToggleMenu={toggleMenu} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<AllProjects />} />
