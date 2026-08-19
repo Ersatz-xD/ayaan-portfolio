@@ -125,10 +125,19 @@ button{font-family:inherit;}
   position:fixed; top:0; left:0; right:0; z-index:500;
   display:flex; justify-content:space-between; align-items:center;
   padding: 20px clamp(20px,4vw,56px);
-  background:rgba(7,8,10,0.7);
+  background:rgba(7,8,10,0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom:1px solid rgba(244,246,249,0.06);
+  border-bottom:1px solid rgba(0,229,255,0.15);
+  box-shadow: 0 1px 0 rgba(0,229,255,0.08), 0 20px 40px -20px rgba(0,229,255,0.1);
+}
+.navbar::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-1px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+  opacity:.5;
 }
 
 .logo-wrapper{
