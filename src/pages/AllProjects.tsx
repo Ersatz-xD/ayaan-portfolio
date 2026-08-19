@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PROJECTS, type Project } from "../data/projects";
@@ -19,15 +19,38 @@ const FILTERS: { id: Filter; label: string }[] = [
   { id: "fullstack", label: "Full-Stack & Mobile" },
 ];
 
+function parseFilter(value: string | null): Filter {
+  if (value === "ai" || value === "fullstack") return value;
+  return "all";
+}
+
 export default function AllProjects() {
   const reduceMotion = useReducedMotion();
-  const [filter, setFilter] = useState<Filter>("all");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [filter, setFilter] = useState<Filter>(() => parseFilter(searchParams.get("filter")));
   const [query, setQuery] = useState("");
   const showcaseRef = useRef<HTMLDivElement>(null!);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const maskRef = useRef<HTMLDivElement>(null!);
 
   useNeuralMask(maskRef);
+  useEffect(() => {
+    setFilter(parseFilter(searchParams.get("filter")));
+  }, [searchParams]);
+
+  function handleFilterClick(next: Filter) {
+    setFilter(next);
+    if (next === "all") {
+      const params = new URLSearchParams(searchParams);
+      params.delete("filter");
+      setSearchParams(params, { replace: true });
+    } else {
+      const params = new URLSearchParams(searchParams);
+      params.set("filter", next);
+      setSearchParams(params, { replace: true });
+    }
+  }
 
   const filtered = useMemo(() => {
     return PROJECTS.filter((p) => {
@@ -122,7 +145,7 @@ export default function AllProjects() {
               role="tab"
               aria-selected={filter === f.id}
               className={`allproj-filter${filter === f.id ? " active" : ""}`}
-              onClick={() => setFilter(f.id)}
+              onClick={() => handleFilterClick(f.id)}
             >
               {f.label}
             </button>
@@ -145,7 +168,7 @@ export default function AllProjects() {
 
       <div className="allproj-showcase" ref={showcaseRef}>
         {filtered.map((project, i) => (
-                    <div
+          <div
             className={`allproj-row${i % 2 !== 0 ? " reverse" : ""}`}
             id={project.id}
             key={project.id}
@@ -191,7 +214,7 @@ export default function AllProjects() {
             className="allproj-reset"
             onClick={() => {
               setQuery("");
-              setFilter("all");
+              handleFilterClick("all");
             }}
           >
             Clear filters
