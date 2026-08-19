@@ -12,26 +12,69 @@ const CATEGORY_ICONS: Record<string, ReactNode> = {
   "ai-ml": (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="12" cy="12" r="3" stroke="#00E5FF" strokeWidth="1.6" />
-      <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"
-        stroke="#1A8CFF" strokeWidth="1.6" strokeLinecap="round" />
+      <path
+        d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"
+        stroke="#1A8CFF"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   "fullstack-web": (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="4" width="18" height="13" rx="2" stroke="#00E5FF" strokeWidth="1.6" />
-      <path d="M8 21h8M12 17v4" stroke="#1A8CFF" strokeWidth="1.6" strokeLinecap="round" />
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="13"
+        rx="2"
+        stroke="#00E5FF"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M8 21h8M12 17v4"
+        stroke="#1A8CFF"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   mobile: (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="6" y="2" width="12" height="20" rx="2" stroke="#00E5FF" strokeWidth="1.6" />
-      <path d="M10 19h4" stroke="#1A8CFF" strokeWidth="1.6" strokeLinecap="round" />
+      <rect
+        x="6"
+        y="2"
+        width="12"
+        height="20"
+        rx="2"
+        stroke="#00E5FF"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M10 19h4"
+        stroke="#1A8CFF"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   desktop: (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="4" width="18" height="12" rx="1.5" stroke="#00E5FF" strokeWidth="1.6" />
-      <path d="M8 20h8M12 16v4" stroke="#1A8CFF" strokeWidth="1.6" strokeLinecap="round" />
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="12"
+        rx="1.5"
+        stroke="#00E5FF"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M8 20h8M12 16v4"
+        stroke="#1A8CFF"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
     </svg>
   ),
 };
@@ -60,7 +103,7 @@ export default function ServicesTeaser() {
               start: "top 85%",
               toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       });
     }, sectionRef);
@@ -69,6 +112,7 @@ export default function ServicesTeaser() {
 
   return (
     <section id="services" className="svc-teaser-section" ref={sectionRef}>
+      <div className="svc-teaser-bg-grid" aria-hidden="true" />
       <div className="svc-teaser-header">
         <div className="svc-teaser-badge-num">06</div>
         <h2 className="svc-teaser-headline">
@@ -76,7 +120,8 @@ export default function ServicesTeaser() {
         </h2>
         <p className="svc-teaser-subtext">
           I partner with founders and teams to ship production-grade software —
-          from intelligent AI features to full-stack platforms, native apps, and desktop tools.
+          from intelligent AI features to full-stack platforms, native apps, and
+          desktop tools.
         </p>
       </div>
 
@@ -85,7 +130,9 @@ export default function ServicesTeaser() {
           <div
             className="svc-teaser-card"
             key={cat.id}
-            ref={(el) => {cardRefs.current[i] = el}}
+            ref={(el) => {
+              cardRefs.current[i] = el;
+            }}
           >
             <div className="svc-teaser-icon">{CATEGORY_ICONS[cat.id]}</div>
             <h3 className="svc-teaser-card-title">{cat.title}</h3>
@@ -97,8 +144,18 @@ export default function ServicesTeaser() {
       <div className="svc-teaser-footer">
         <Link className="svc-teaser-cta" to="/services">
           View All Services
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 17L17 7M17 7H8M17 7V16"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </Link>
       </div>

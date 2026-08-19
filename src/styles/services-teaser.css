@@ -1,14 +1,33 @@
-.svc-teaser-section {
-  position: relative;
-  padding: 140px clamp(20px, 6vw, 80px) 140px;
+.svc-teaser-section{
+  position:relative;
+  background:var(--panel);
+  padding: 80px clamp(20px,6vw,80px) 90px;
+  overflow:hidden;
 }
 
-.svc-teaser-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 32px;
-  margin-bottom: 56px;
+.svc-teaser-bg-grid{
+  position:absolute;
+  top:0; right:0;
+  width:min(600px, 60vw);
+  height:340px;
+  z-index:0;
+  pointer-events:none;
+  opacity:.5;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,229,255,0.12) 0px, rgba(0,229,255,0.12) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(0,229,255,0.12) 0px, rgba(0,229,255,0.12) 1px, transparent 1px, transparent 40px);
+  -webkit-mask-image: linear-gradient(225deg, #000 30%, transparent 80%);
+  mask-image: linear-gradient(225deg, #000 30%, transparent 80%);
+}
+
+.svc-teaser-header{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:32px;
+  margin-bottom:36px;
 }
 
 .svc-teaser-badge-num {
@@ -46,11 +65,13 @@
   margin-top: -24px;
 }
 
-.svc-teaser-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-bottom: 48px;
+.svc-teaser-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:20px;
+  margin-bottom:32px;
 }
 
 .svc-teaser-card {
@@ -104,9 +125,11 @@
   line-height: 1.6;
 }
 
-.svc-teaser-footer {
-  display: flex;
-  justify-content: center;
+.svc-teaser-footer{
+  position:relative;
+  z-index:1;
+  display:flex;
+  justify-content:center;
 }
 
 .svc-teaser-cta {
