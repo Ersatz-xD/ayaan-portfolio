@@ -232,7 +232,9 @@ export default function AllProjects() {
 }
 
 function ProjectGallery({ project }: { project: Project }) {
-  const images = project.images ?? [];
+  const images = (project.images ?? []).map(
+    (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`
+  );
   const [active, setActive] = useState(0);
 
   function prev() {

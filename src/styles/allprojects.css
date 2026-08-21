@@ -264,7 +264,6 @@
   margin:4px 0 8px;
 }
 
-/* --- Architectural UI Cluster --- */
 
 .cluster-wrap{
   position:relative;
@@ -568,7 +567,6 @@
     font-size:clamp(20px, 2vw, 26px);
   }
 }
-/* ============ Scaled Laptop 1366px and below ============ */
 @media (max-width: 1366px) and (min-width: 1025px){
   .allproj-row{
     grid-template-columns: 1fr 1fr;

@@ -11,7 +11,7 @@ export interface Credential {
 }
 
 export const CREDENTIALS: Credential[] = [
-  // --- Honors & Academic Awards ---
+  //Honors & Academic Awards
   {
     id: "codezaar-trophy",
     title: "CODEZAAR Programming Champion — Trophy",
@@ -63,7 +63,7 @@ export const CREDENTIALS: Credential[] = [
     tags: ["Speed Coding", "Symposium"],
   },
 
-  // --- Stanford & DeepLearning.AI ML / Math Specializations ---
+  //Stanford & DeepLearning.AI ML / Math Specializations
   {
     id: "ml-specialization",
     title: "Machine Learning Specialization",
@@ -135,7 +135,7 @@ export const CREDENTIALS: Credential[] = [
     tags: ["Probability", "Statistics"],
   },
 
-  // --- Google AI & LLM Certifications ---
+  //Google AI & LLM Certifications
   {
     id: "ai-essentials",
     title: "Google AI Essentials",
@@ -217,7 +217,7 @@ export const CREDENTIALS: Credential[] = [
     tags: ["Applied AI", "Workshop"],
   },
 
-  // --- Microsoft GitHub & Version Control ---
+  //Microsoft GitHub & Version Control
   {
     id: "github-foundations",
     title: "GitHub Foundations",
@@ -309,7 +309,7 @@ export const CREDENTIALS: Credential[] = [
     tags: ["AI Pair Programming"],
   },
 
-  // --- University / Bootcamp / HackerRank ---
+  //University / Bootcamp / HackerRank
   {
     id: "tuof-research-paper",
     title: "Research Paper Recognition (HTWARP)",

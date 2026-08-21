@@ -7,7 +7,7 @@ export interface Project {
   metric?: string;
   githubUrl: string;
   description: string;
-  images?: string[]; // Optional array to easily check if images exist
+  images?: string[]; 
 }
 
 export const PROJECTS: Project[] = [
