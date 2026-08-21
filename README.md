@@ -117,9 +117,6 @@ The application will spin up locally at `http://localhost:3000` (or `[http://127
 
 ##  License & Contact
 
-* **Author:** Ayaan Ahmed Khan
-
-
 * **Email:** [aayan.shazim@gmail.com](https://www.google.com/search?q=mailto%3Aaayan.shazim%40gmail.com)
 
 * **GitHub:** [github.com/Ersatz-xD](https://www.google.com/search?q=https://github.com/Ersatz-xD)
