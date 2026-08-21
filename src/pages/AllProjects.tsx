@@ -196,11 +196,17 @@ export default function AllProjects() {
             </div>
 
             <div className="allproj-row-cluster">
-              <div className="cluster-orbit" aria-hidden="true" />
-              {project.category === "ai" ? (
-                <AIClusterMockup project={project} />
+              {project.images && project.images.length > 0 ? (
+                <ProjectGallery project={project} />
               ) : (
-                <FullstackClusterMockup project={project} />
+                <>
+                  <div className="cluster-orbit" aria-hidden="true" />
+                  {project.category === "ai" ? (
+                    <AIClusterMockup project={project} />
+                  ) : (
+                    <FullstackClusterMockup project={project} />
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -219,6 +225,61 @@ export default function AllProjects() {
           >
             Clear filters
           </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProjectGallery({ project }: { project: Project }) {
+  const images = project.images ?? [];
+  const [active, setActive] = useState(0);
+
+  function prev() {
+    setActive((i) => (i === 0 ? images.length - 1 : i - 1));
+  }
+  function next() {
+    setActive((i) => (i === images.length - 1 ? 0 : i + 1));
+  }
+
+  return (
+    <div className="gallery-wrap">
+      <div className="gallery-frame">
+        <img
+          key={images[active]}
+          src={images[active]}
+          alt={`${project.title} preview ${active + 1} of ${images.length}`}
+          className="gallery-img"
+        />
+
+        {images.length > 1 && (
+          <>
+            <button className="gallery-nav prev" onClick={prev} aria-label="Previous image">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button className="gallery-nav next" onClick={next} aria-label="Next image">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </>
+        )}
+      </div>
+
+      {images.length > 1 && (
+        <div className="gallery-dots" role="tablist" aria-label={`${project.title} image selector`}>
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              role="tab"
+              aria-selected={idx === active}
+              aria-label={`Show image ${idx + 1}`}
+              className={`gallery-dot${idx === active ? " active" : ""}`}
+              onClick={() => setActive(idx)}
+            />
+          ))}
         </div>
       )}
     </div>

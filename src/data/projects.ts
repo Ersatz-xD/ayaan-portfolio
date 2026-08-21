@@ -7,6 +7,7 @@ export interface Project {
   metric?: string;
   githubUrl: string;
   description: string;
+  images?: string[]; // Optional array to easily check if images exist
 }
 
 export const PROJECTS: Project[] = [
@@ -20,6 +21,10 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Ersatz-xD/Pearl-AQI-Engine",
     description:
       "Architected a serverless MLOps pipeline for automated CI/CD and built a FastAPI/React dashboard using TreeSHAP for explainable 72-hour AQI forecasts.",
+    images: [
+      "/assets/projects_preview/pop-1.jpg",
+      "/assets/projects_preview/pop-2.jpg"
+    ]
   },
   {
     id: "prof-gpt",
@@ -31,6 +36,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/BinaryVibe/prof-gpt",
     description:
       "Built a Full-Stack RAG pipeline with dynamic PDF ingestion and ChromaDB vector search, incorporating a scikit-learn intent classifier and LLM anti-hallucination guardrails.",
+    images: [
+      "/assets/projects_preview/prof-gpt-1.png",
+      "/assets/projects_preview/prof-gpt-2.png",
+      "/assets/projects_preview/prof-gpt-3.png"
+    ]
   },
   {
     id: "ml-unsupervised",
@@ -62,6 +72,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Ersatz-xD/VibeSnitch-AI",
     description:
       "Engineered an AI-driven platform using PyQt5 and the Gemini API to predict MBTI types through NLP sentiment analysis.",
+    images: [
+      "/assets/projects_preview/vs-1.jpg",
+      "/assets/projects_preview/vs-2.jpg",
+      "/assets/projects_preview/vs-3.jpg"
+    ]
   },
   {
     id: "auth2x",
@@ -73,6 +88,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/C0deCrypt/Auth2X",
     description:
       "Built a multi-factor authentication system utilizing OpenCV computer vision for real-time identity verification and tracking.",
+    images: [
+      "/assets/projects_preview/auth-1.jpg",
+      "/assets/projects_preview/auth-2.jpg",
+      "/assets/projects_preview/auth-3.jpg"
+    ]
   },
   {
     id: "brobroke",
@@ -83,6 +103,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Ersatz-xD/BroBroke",
     description:
       "Built and deployed a full-stack MERN application to track and balance shared financial records among peers.",
+    images: [
+      "/assets/projects_preview/bb-1.jpg",
+      "/assets/projects_preview/bb-2.png",
+      "/assets/projects_preview/bb-3.png"
+    ]
   },
   {
     id: "acm-website",
@@ -94,6 +119,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/ACM-CUI-Wah/ACM-CUI-Web",
     description:
       "Developed and deployed the official student chapter portal using React.js and Bootstrap, ensuring full mobile responsiveness.",
+    images: [
+      "/assets/projects_preview/acm-wab-1.png",
+      "/assets/projects_preview/acm-wab-2.png",
+      "/assets/projects_preview/acm-wab-3.png"
+    ]
   },
   {
     id: "edugate",
@@ -105,6 +135,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/BinaryVibe/edugate-pk",
     description:
       "Engineered a scalable web admission platform using Laravel and MySQL with an Admin Dashboard for real-time university data management.",
+    images: [
+      "/assets/projects_preview/edpk-1.png",
+      "/assets/projects_preview/edpk-2.png",
+      "/assets/projects_preview/edpk-3.png"
+    ]
   },
   {
     id: "fyp-hub",
@@ -115,6 +150,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/BinaryVibe/fyp-hub",
     description:
       "Developed a cross-platform mobile application in Flutter with interactive project tracking and real-time notifications.",
+    images: [
+      "/assets/projects_preview/fyphub-1.jpeg",
+      "/assets/projects_preview/fyphub-2.jpeg",
+      "/assets/projects_preview/fyphub-3.jpeg"
+    ]
   },
   {
     id: "campus-crave",
@@ -135,6 +175,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Ersatz-xD/PawPal",
     description:
       "Designed a full-stack civic-tech web prototype to streamline animal cruelty reporting and shelter discovery.",
+    images: [
+      "/assets/projects_preview/pawpal-1.png",
+      "/assets/projects_preview/pawpal-2.png",
+      "/assets/projects_preview/pawpal-3.png"
+    ]
   },
   {
     id: "redacted-vault",
@@ -145,6 +190,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/C0deCrypt/RedactedVault",
     description:
       "Developed a secure Python backend utilizing AES encryption, biometric multi-factor authentication, and MySQL with a Tkinter GUI.",
+    images: [
+      "/assets/projects_preview/rv-1.jpg",
+      "/assets/projects_preview/rv-2.jpg",
+      "/assets/projects_preview/rv-3.jpg"
+    ]
   },
   {
     id: "padhlo-ai",
@@ -155,6 +205,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Ersatz-xD/Padhlo-ai",
     description:
       "Architected an AI-powered study tool leveraging MongoDB and the Gemini API for automated quiz and summary generation.",
+    images: [
+      "/assets/projects_preview/padhlo-ai-1.png",
+      "/assets/projects_preview/padhlo-ai-2.png",
+      "/assets/projects_preview/padhlo-ai-3.png"
+    ]
   },
   {
     id: "stay-tracked",
@@ -165,6 +220,11 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/BinaryVibe/StayTracked",
     description:
       "Created a Java project management suite implementing OOP principles and MySQL database integration.",
+    images: [
+      "/assets/projects_preview/st-1.jpg",
+      "/assets/projects_preview/st-2.jpg",
+      "/assets/projects_preview/st-3.jpg"
+    ]
   },
 ];
 
