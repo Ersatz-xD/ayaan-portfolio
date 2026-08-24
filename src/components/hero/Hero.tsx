@@ -139,30 +139,7 @@ export default function Hero() {
                 services to autonomous agent architectures.
               </p>
               <div className={`cta-row${contentVisible ? " show" : ""}`}>
-                <a className="pill-btn primary" href="#work">
-                  <span className="pill-fill" />
-                  <span className="pill-label">
-                    <span className="label-base">View Architecture</span>
-                    <span className="label-mask">
-                      <span>View Architecture</span>
-                    </span>
-                  </span>
-                  <span className="pill-icon">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M7 17L17 7M17 7H8M17 7V16"
-                        stroke="#F4F6F9"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </a>
+                
                 <a className="pill-btn secondary" href="#contact">
                   <span className="pill-fill" />
                   <span className="pill-label">
