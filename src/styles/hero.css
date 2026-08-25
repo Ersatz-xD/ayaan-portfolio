@@ -613,7 +613,8 @@
   .hero-content {
     height: auto;
     min-height: 100vh;
-    grid-template-rows: auto minmax(140px, 26vh) auto auto;
+    align-content: start;
+    grid-template-rows: auto minmax(100px, 14vh) auto auto;
     grid-template-areas:
       "topline"
       "spacer"
@@ -632,12 +633,12 @@
 
   .hero-figure {
     position: absolute;
-    top: 160px;
+    top: 140px;
     left: 50%;
     right: auto;
     bottom: auto;
     transform: translateX(-50%);
-    height: min(30vh, 280px);
+    height: min(22vh, 220px);
     width: auto;
     opacity: 0.85;
   }
