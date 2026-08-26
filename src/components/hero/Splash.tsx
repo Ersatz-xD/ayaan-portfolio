@@ -13,7 +13,7 @@ export default function Splash({ phase }: SplashProps) {
       <div className="row top">
         {Array.from({ length: 5 }).map((_, i) => <div className="panel" key={i} />)}
       </div>
-      <div className="mark">NIGHTWING&nbsp;/&nbsp;SYSTEMS</div>
+      
       <div className="row bottom">
         {Array.from({ length: 5 }).map((_, i) => <div className="panel" key={i} />)}
       </div>
