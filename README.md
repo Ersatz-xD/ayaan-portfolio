@@ -2,7 +2,7 @@
 
 **Cyber-Stealth CS & AI Engineering Showcase**
 
-> A production-grade, scroll-driven portfolio web application architected for **Ayaan Ahmed Khan**—Computer Science undergraduate at COMSATS University Islamabad, Wah Campus (BCS '27) and Full-Stack / AI Engineer.
+> A production-grade, scroll-driven portfolio web application architected for **Ayaan Ahmed Khan** (Myself). Computer Science undergraduate at COMSATS University Islamabad, Wah Campus (BCS '27) and Full-Stack / AI Engineer.
 > 
 > 
 
