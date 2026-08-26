@@ -628,7 +628,10 @@
     padding: 120px 20px 32px;
     gap: 16px;
   }
-
+.hero-bg-number, 
+  .hero-bg-number.show {
+    display: none !important;
+  }
   .hero-topline {
     max-width: 160px;
   }
