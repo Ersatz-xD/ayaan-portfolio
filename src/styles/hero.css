@@ -652,11 +652,11 @@
     transform: none;
     height: min(40vh, 480px);
     width: auto;
-    opacity: 0.35;
+    opacity: 0.45;
   }
 
   .hero-figure.show {
-    opacity: 0.35;
+    opacity: 0.45;
     clip-path: inset(0 0 0% 0);
   }
 
