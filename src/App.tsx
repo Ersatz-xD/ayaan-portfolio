@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { Routes, Route, HashRouter} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import Footer from "./components/layout/Footer";
@@ -13,7 +13,7 @@ import "./styles/footer.css";
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = useCallback(() => setMenuOpen((v) => !v), []);
+  // const toggleMenu = useCallback(() => setMenuOpen((v) => !v), []);
 
   useEffect(() => {
     document.body.classList.toggle("menu-open", menuOpen);
@@ -30,7 +30,7 @@ export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
-      <Navbar menuOpen={menuOpen} onToggleMenu={toggleMenu} />
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<AllProjects />} />

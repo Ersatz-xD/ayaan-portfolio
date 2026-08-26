@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 interface NavbarProps {
   menuOpen: boolean;
-  onToggleMenu: () => void;
+  setMenuOpen: (open: boolean) => void; 
 }
 
 const LINKS = [
@@ -13,8 +14,14 @@ const LINKS = [
   { idx: "05", label: "Contact", href: "/contact" },
 ];
 
-export default function Navbar({ menuOpen, onToggleMenu }: NavbarProps) {
+export default function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
   const location = useLocation();
+
+  useEffect(() => {
+    if (menuOpen) {
+      setMenuOpen(false);
+    }
+  }, [location.pathname]);
 
   return (
     <header className="navbar">
@@ -46,7 +53,7 @@ export default function Navbar({ menuOpen, onToggleMenu }: NavbarProps) {
         className="burger-btn"
         aria-label="Toggle menu"
         aria-expanded={menuOpen}
-        onClick={onToggleMenu}
+        onClick={() => setMenuOpen(!menuOpen)}
       >
         <span></span><span></span><span></span>
       </button>
@@ -54,7 +61,11 @@ export default function Navbar({ menuOpen, onToggleMenu }: NavbarProps) {
       <nav className="mobile-menu-panel" aria-hidden={!menuOpen}>
         <nav>
           {LINKS.map((l) => (
-            <Link key={l.idx} to={l.href} onClick={onToggleMenu}>
+            <Link 
+              key={l.idx} 
+              to={l.href} 
+              onClick={() => setMenuOpen(false)}
+            >
               <span className="idx">{l.idx}</span>
               {l.label}
             </Link>
@@ -63,8 +74,8 @@ export default function Navbar({ menuOpen, onToggleMenu }: NavbarProps) {
         <div className="menu-footer">
           <a className="email" href="mailto:aayan.shazim@gmail.com">aayan.shazim@gmail.com</a>
           <div className="socials">
-            <a href="https://github.com/Ersatz-xD" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/ayaan-ahmed-khan-448600351/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/Ersatz-xD" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/ayaan-ahmed-khan-448600351/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </nav>

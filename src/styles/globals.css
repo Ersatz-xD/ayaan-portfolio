@@ -297,3 +297,14 @@ body.menu-open .mobile-menu-panel{
   .navbar-links{ display:none; }
   .burger-btn{ display:flex; }
 }
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 12px 20px; 
+  }
+  
+  .burger-btn {
+    width: 42px; 
+    height: 42px;
+  }
+}
