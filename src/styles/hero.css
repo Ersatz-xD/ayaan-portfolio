@@ -62,7 +62,7 @@
 .figure-base {
   position: relative;
   filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.65))
-    drop-shadow(0 0 30px rgba(26, 140, 255, 0.25));
+    drop-shadow(0 0 30px rgba(200,30,58, 0.25));
 }
 .figure-reveal {
   position: absolute;
@@ -262,7 +262,7 @@
   padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid rgba(244, 246, 249, 0.16);
-  background: rgba(11, 14, 20, 0.55);
+  background: rgba(38,38,38, 0.55);
   color: var(--muted);
 }
 
@@ -358,7 +358,20 @@
   cursor: pointer;
 }
 .pill-btn.secondary {
-  border-color: rgba(244, 246, 249, 0.12);
+  border-color: rgba(255, 59, 78, 0.45);
+  background: rgba(255, 59, 78, 0.06);
+  box-shadow:
+    0 0 22px rgba(255, 59, 78, 0.25),
+    0 0 46px rgba(255, 59, 78, 0.12);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.pill-btn.secondary:hover {
+  border-color: rgba(255, 59, 78, 0.7);
+  box-shadow:
+    0 0 28px rgba(255, 59, 78, 0.45),
+    0 0 60px rgba(255, 59, 78, 0.22);
 }
 
 .pill-fill {
@@ -395,7 +408,7 @@
   width: 100%;
 }
 .pill-label .label-mask span {
-  color: #07080a;
+  color: #1E1E1E;
   display: block;
 }
 
@@ -416,7 +429,7 @@
 }
 .pill-btn:hover .pill-icon {
   transform: translateX(-4px);
-  background: rgba(7, 8, 10, 0.35);
+  background: rgba(30,30,30, 0.35);
 }
 .pill-icon svg {
   width: 16px;

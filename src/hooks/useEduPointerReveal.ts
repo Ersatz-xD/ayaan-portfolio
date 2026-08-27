@@ -1,17 +1,18 @@
 import { useEffect } from "react";
 import { useReducedMotion } from "./useReducedMotion";
 
-export function useEduPointerReveal(
-  sectionRef: React.RefObject<HTMLElement>,
+export function usePointerReveal(
   revealLayerRef: React.RefObject<HTMLDivElement>,
+  heroFigureRef: React.RefObject<HTMLDivElement>,
+  figureRevealRef: React.RefObject<HTMLImageElement>,
   canvasRef: React.RefObject<HTMLCanvasElement>
 ) {
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const section = sectionRef.current;
     const canvas = canvasRef.current;
-    if (!section || !canvas) return;
+    const container = canvas?.parentElement || revealLayerRef.current?.parentElement;
+    if (!canvas || !container) return;
     const ctx = canvas.getContext("2d")!;
     if (!ctx) return;
 
@@ -21,7 +22,7 @@ export function useEduPointerReveal(
     let rafId = 0;
 
     function resizeCanvas() {
-      const rect = section!.getBoundingClientRect();
+      const rect = container!.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas!.width = rect.width * dpr;
       canvas!.height = rect.height * dpr;
@@ -38,6 +39,11 @@ export function useEduPointerReveal(
     }
     window.addEventListener("pointermove", onPointerMove, { passive: true });
 
+    function onPointerLeave() {
+      hasMoved = false;
+    }
+    document.addEventListener("pointerleave", onPointerLeave);
+
     function loop() {
       if (!reduceMotion) {
         smooth.x += (mouse.x - smooth.x) * 0.1;
@@ -47,35 +53,42 @@ export function useEduPointerReveal(
         smooth.y = mouse.y;
       }
 
-      const rect = section!.getBoundingClientRect();
+      const rect = container!.getBoundingClientRect();
       const localX = smooth.x - rect.left;
       const localY = smooth.y - rect.top;
 
       revealLayerRef.current?.style.setProperty("--mx", `${localX}px`);
       revealLayerRef.current?.style.setProperty("--my", `${localY}px`);
 
+      const figRect = heroFigureRef.current?.getBoundingClientRect();
+      if (figRect) {
+        figureRevealRef.current?.style.setProperty("--fx", `${smooth.x - figRect.left}px`);
+        figureRevealRef.current?.style.setProperty("--fy", `${smooth.y - figRect.top}px`);
+      }
+
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       ctx.clearRect(0, 0, canvas!.width, canvas!.height);
 
-      const inBounds = localX >= 0 && localX <= rect.width && localY >= 0 && localY <= rect.height;
+      const inBounds =
+        localX >= 0 && localX <= rect.width &&
+        localY >= 0 && localY <= rect.height;
 
       if (hasMoved && inBounds) {
         const x = localX * dpr;
         const y = localY * dpr;
         const r = 90 * dpr;
         ctx.save();
-        ctx.strokeStyle = "rgba(0,229,255,0.55)";
-        ctx.lineWidth = 1 * dpr;
+        ctx.strokeStyle = "rgba(255,59,78,0.55)";
+        ctx.lineWidth = dpr;
         ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke();
         ctx.beginPath(); ctx.arc(x, y, r * 0.55, 0, Math.PI * 2); ctx.stroke();
-        ctx.strokeStyle = "rgba(0,229,255,0.25)";
+        ctx.strokeStyle = "rgba(255,59,78,0.25)";
         ctx.beginPath(); ctx.moveTo(x - r * 1.3, y); ctx.lineTo(x - r * 0.7, y); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(x + r * 0.7, y); ctx.lineTo(x + r * 1.3, y); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(x, y - r * 1.3); ctx.lineTo(x, y - r * 0.7); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(x, y + r * 0.7); ctx.lineTo(x, y + r * 1.3); ctx.stroke();
         ctx.restore();
       }
-
       rafId = requestAnimationFrame(loop);
     }
     rafId = requestAnimationFrame(loop);
@@ -83,7 +96,8 @@ export function useEduPointerReveal(
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerleave", onPointerLeave);
       cancelAnimationFrame(rafId);
     };
-  }, [reduceMotion, sectionRef, revealLayerRef, canvasRef]);
+  }, [reduceMotion, revealLayerRef, heroFigureRef, figureRevealRef, canvasRef]);
 }

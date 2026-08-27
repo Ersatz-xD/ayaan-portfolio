@@ -78,11 +78,11 @@ export function usePointerReveal(
         const y = localY * dpr;
         const r = 90 * dpr;
         ctx.save();
-        ctx.strokeStyle = "rgba(0,229,255,0.55)";
+        ctx.strokeStyle = "rgba(255,59,78,0.55)";
         ctx.lineWidth = dpr;
         ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke();
         ctx.beginPath(); ctx.arc(x, y, r * 0.55, 0, Math.PI * 2); ctx.stroke();
-        ctx.strokeStyle = "rgba(0,229,255,0.25)";
+        ctx.strokeStyle = "rgba(255,59,78,0.25)";
         ctx.beginPath(); ctx.moveTo(x - r * 1.3, y); ctx.lineTo(x - r * 0.7, y); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(x + r * 0.7, y); ctx.lineTo(x + r * 1.3, y); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(x, y - r * 1.3); ctx.lineTo(x, y - r * 0.7); ctx.stroke();

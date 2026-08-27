@@ -84,8 +84,8 @@
   transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
 }
 .footer-contact-link:hover{
-  border-color:rgba(0,229,255,0.5);
-  box-shadow:0 0 18px rgba(0,229,255,0.25);
+  border-color:rgba(255,59,78,0.5);
+  box-shadow:0 0 18px rgba(255,59,78,0.25);
   transform:translateY(-2px);
 }
 .footer-contact-link.primary{
@@ -95,7 +95,7 @@
   font-weight:600;
 }
 .footer-contact-link.primary:hover{
-  box-shadow:0 0 24px rgba(0,229,255,0.5);
+  box-shadow:0 0 24px rgba(255,59,78,0.5);
 }
 
 .footer-bottom{

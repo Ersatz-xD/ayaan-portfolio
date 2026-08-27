@@ -11,10 +11,10 @@ gsap.registerPlugin(ScrollTrigger);
 const CATEGORY_ICONS: Record<string, ReactNode> = {
   "ai-ml": (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="3" stroke="#00E5FF" strokeWidth="1.6" />
+      <circle cx="12" cy="12" r="3" stroke="#FF3B4E" strokeWidth="1.6" />
       <path
         d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"
-        stroke="#1A8CFF"
+        stroke="#C81E3A"
         strokeWidth="1.6"
         strokeLinecap="round"
       />
@@ -28,12 +28,12 @@ const CATEGORY_ICONS: Record<string, ReactNode> = {
         width="18"
         height="13"
         rx="2"
-        stroke="#00E5FF"
+        stroke="#FF3B4E"
         strokeWidth="1.6"
       />
       <path
         d="M8 21h8M12 17v4"
-        stroke="#1A8CFF"
+        stroke="#C81E3A"
         strokeWidth="1.6"
         strokeLinecap="round"
       />
@@ -47,12 +47,12 @@ const CATEGORY_ICONS: Record<string, ReactNode> = {
         width="12"
         height="20"
         rx="2"
-        stroke="#00E5FF"
+        stroke="#FF3B4E"
         strokeWidth="1.6"
       />
       <path
         d="M10 19h4"
-        stroke="#1A8CFF"
+        stroke="#C81E3A"
         strokeWidth="1.6"
         strokeLinecap="round"
       />
@@ -66,12 +66,12 @@ const CATEGORY_ICONS: Record<string, ReactNode> = {
         width="18"
         height="12"
         rx="1.5"
-        stroke="#00E5FF"
+        stroke="#FF3B4E"
         strokeWidth="1.6"
       />
       <path
         d="M8 20h8M12 16v4"
-        stroke="#1A8CFF"
+        stroke="#C81E3A"
         strokeWidth="1.6"
         strokeLinecap="round"
       />

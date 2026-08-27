@@ -168,11 +168,11 @@ function ExperienceIcon() {
           </feMerge>
         </filter>
       </defs>
-      <rect x="4" y="4" width="72" height="72" rx="12" fill="none" stroke="#1A8CFF" strokeWidth="1.2" opacity="0.4" />
-      <g filter="url(#expGlow)" stroke="#00E5FF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none">
-        <path d="M44 16 L26 44 H38 L34 64 L56 34 H42 Z" fill="#00E5FF" stroke="none" />
+      <rect x="4" y="4" width="72" height="72" rx="12" fill="none" stroke="#C81E3A" strokeWidth="1.2" opacity="0.4" />
+      <g filter="url(#expGlow)" stroke="#FF3B4E" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none">
+        <path d="M44 16 L26 44 H38 L34 64 L56 34 H42 Z" fill="#FF3B4E" stroke="none" />
       </g>
-      <text x="14" y="70" fontSize="9" fill="#8A94A6" fontFamily="monospace">&gt;_</text>
+      <text x="14" y="70" fontSize="9" fill="#A3ACBE" fontFamily="monospace">&gt;_</text>
     </svg>
   );
 }

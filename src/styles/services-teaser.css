@@ -14,8 +14,8 @@
   pointer-events:none;
   opacity:.5;
   background-image:
-    repeating-linear-gradient(0deg, rgba(0,229,255,0.12) 0px, rgba(0,229,255,0.12) 1px, transparent 1px, transparent 40px),
-    repeating-linear-gradient(90deg, rgba(0,229,255,0.12) 0px, rgba(0,229,255,0.12) 1px, transparent 1px, transparent 40px);
+    repeating-linear-gradient(0deg, rgba(255,59,78,0.12) 0px, rgba(255,59,78,0.12) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(255,59,78,0.12) 0px, rgba(255,59,78,0.12) 1px, transparent 1px, transparent 40px);
   -webkit-mask-image: linear-gradient(225deg, #000 30%, transparent 80%);
   mask-image: linear-gradient(225deg, #000 30%, transparent 80%);
 }
@@ -78,7 +78,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: rgba(11, 14, 20, 0.55);
+  background: rgba(38,38,38, 0.55);
   border: 1px solid rgba(244, 246, 249, 0.08);
   border-radius: 18px;
   padding: 26px 24px;
@@ -90,17 +90,17 @@
   opacity: 0;
 }
 .svc-teaser-card:hover {
-  border-color: rgba(0, 229, 255, 0.35);
+  border-color: rgba(255,59,78, 0.35);
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px -20px rgba(0, 229, 255, 0.2);
+  box-shadow: 0 20px 50px -20px rgba(255,59,78, 0.2);
 }
 
 .svc-teaser-icon {
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  border: 1px solid rgba(0, 229, 255, 0.3);
-  background: rgba(0, 229, 255, 0.06);
+  border: 1px solid rgba(255,59,78, 0.3);
+  background: rgba(255,59,78, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +108,7 @@
 .svc-teaser-icon svg {
   width: 22px;
   height: 22px;
-  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.4));
+  filter: drop-shadow(0 0 8px rgba(255,59,78, 0.4));
 }
 
 .svc-teaser-card-title {
@@ -150,8 +150,8 @@
     transform 0.3s ease;
 }
 .svc-teaser-cta:hover {
-  border-color: rgba(0, 229, 255, 0.5);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  border-color: rgba(255,59,78, 0.5);
+  box-shadow: 0 0 20px rgba(255,59,78, 0.3);
   transform: translateY(-2px);
 }
 .svc-teaser-cta svg {

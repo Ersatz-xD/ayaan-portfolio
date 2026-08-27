@@ -55,7 +55,7 @@ function FooterGraphic() {
           </feMerge>
         </filter>
       </defs>
-      <g stroke="#1A8CFF" strokeWidth="1.2" opacity="0.5">
+      <g stroke="#C81E3A" strokeWidth="1.2" opacity="0.5">
         <line x1="60" y1="60" x2="60" y2="10" />
         <line x1="60" y1="60" x2="102" y2="35" />
         <line x1="60" y1="60" x2="102" y2="85" />
@@ -64,13 +64,13 @@ function FooterGraphic() {
         <line x1="60" y1="60" x2="18" y2="35" />
       </g>
       <g filter="url(#footerGlow)">
-        <circle className="fn-pulse" cx="60" cy="60" r="8" fill="#00E5FF" />
-        <circle className="fn-pulse" cx="60" cy="10" r="4" fill="#1A8CFF" />
-        <circle className="fn-pulse" cx="102" cy="35" r="4" fill="#00E5FF" />
-        <circle className="fn-pulse" cx="102" cy="85" r="4" fill="#1A8CFF" />
-        <circle className="fn-pulse" cx="60" cy="110" r="4" fill="#00E5FF" />
-        <circle className="fn-pulse" cx="18" cy="85" r="4" fill="#1A8CFF" />
-        <circle className="fn-pulse" cx="18" cy="35" r="4" fill="#00E5FF" />
+        <circle className="fn-pulse" cx="60" cy="60" r="8" fill="#FF3B4E" />
+        <circle className="fn-pulse" cx="60" cy="10" r="4" fill="#C81E3A" />
+        <circle className="fn-pulse" cx="102" cy="35" r="4" fill="#FF3B4E" />
+        <circle className="fn-pulse" cx="102" cy="85" r="4" fill="#C81E3A" />
+        <circle className="fn-pulse" cx="60" cy="110" r="4" fill="#FF3B4E" />
+        <circle className="fn-pulse" cx="18" cy="85" r="4" fill="#C81E3A" />
+        <circle className="fn-pulse" cx="18" cy="35" r="4" fill="#FF3B4E" />
       </g>
     </svg>
   );
