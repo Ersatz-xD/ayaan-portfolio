@@ -4,10 +4,18 @@ import NetworkGraph from "./NetworkGraph";
 import { useSplashIntro } from "../../hooks/useSplashIntro";
 import { useHeadlineWords } from "../../hooks/useHeadlineWords";
 import { usePointerReveal } from "../../hooks/usePointerReveal";
+import { useTheme } from "../../hooks/useTheme";
 
 export default function Hero() {
   const { phase, contentVisible, reduceMotion } = useSplashIntro();
   const headline = useHeadlineWords(contentVisible, reduceMotion);
+  const { theme } = useTheme();
+  const figureBaseSrc =
+    theme === "light" ? "assets/nightwing-light.png" : "assets/nightwing.png";
+  const figureRevealSrc =
+    theme === "light"
+      ? "assets/nightwing-reveal-light.png"
+      : "assets/nightwing-reveal.png";
 
   const revealLayerRef = useRef<HTMLDivElement>(null!);
   const heroFigureRef = useRef<HTMLDivElement>(null!);
@@ -58,7 +66,7 @@ export default function Hero() {
           <span className="figure-scan" aria-hidden="true" />
           <img
             className="figure-base"
-            src={`${import.meta.env.BASE_URL}assets/nightwing.png`}
+            src={`${import.meta.env.BASE_URL}${figureBaseSrc}`}
             alt="Nightwing character illustration"
             width={458}
             height={436}
@@ -67,7 +75,7 @@ export default function Hero() {
           <img
             className="figure-reveal"
             ref={figureRevealRef}
-            src={`${import.meta.env.BASE_URL}assets/nightwing-reveal.png`}
+            src={`${import.meta.env.BASE_URL}${figureRevealSrc}`}
             alt=""
             width={512}
             height={487}

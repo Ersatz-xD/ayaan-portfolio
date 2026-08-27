@@ -27,8 +27,8 @@
   pointer-events:none;
   opacity:.3;
   background-image:
-    repeating-linear-gradient(0deg, rgba(244,246,249,0.03) 0px, rgba(244,246,249,0.03) 1px, transparent 1px, transparent 56px),
-    repeating-linear-gradient(90deg, rgba(244,246,249,0.03) 0px, rgba(244,246,249,0.03) 1px, transparent 1px, transparent 56px);
+    repeating-linear-gradient(0deg, rgba(var(--overlay-rgb),0.03) 0px, rgba(var(--overlay-rgb),0.03) 1px, transparent 1px, transparent 56px),
+    repeating-linear-gradient(90deg, rgba(var(--overlay-rgb),0.03) 0px, rgba(var(--overlay-rgb),0.03) 1px, transparent 1px, transparent 56px);
 }
 
 .dispatch-bg-text{
@@ -142,7 +142,7 @@
   padding:8px 8px 8px 22px;
   border-radius:999px;
   border:1px solid rgba(255,59,78,0.4);
-  background:rgba(38,38,38,0.8);
+  background:rgba(var(--panel-rgb),0.8);
   backdrop-filter:blur(14px);
   cursor:pointer;
   transition: border-color .3s ease, box-shadow .3s ease;
@@ -192,7 +192,7 @@
   display:flex;
   flex-direction:column;
   gap:8px;
-  background:rgba(38,38,38,0.6);
+  background:rgba(var(--panel-rgb),0.6);
   border:1px solid rgba(200,30,58,0.25);
   border-radius:18px;
   padding:26px 26px 24px;
@@ -272,7 +272,7 @@
   font-size:12px;
   color:var(--muted);
   background:none;
-  border:1px solid rgba(244,246,249,0.16);
+  border:1px solid rgba(var(--overlay-rgb),0.16);
   border-radius:999px;
   padding:9px 14px;
   cursor:pointer;
