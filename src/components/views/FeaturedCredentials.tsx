@@ -20,10 +20,12 @@ export default function FeaturedCredentials() {
     <section id="credentials" className="cred-section">
       <div className="cred-split">
         <div className="cred-list-col">
-          <span className="cred-eyebrow">05 // Honors &amp; Credentials</span>
-          <h2 className="cred-headline">
-            Featured // <span className="accent">Excellence</span>
-          </h2>
+          <div className="cred-header">
+            <div className="cred-badge-num">06</div>
+            <h2 className="cred-headline">
+              Featured // <span className="accent">Excellence</span>
+            </h2>
+          </div>
 
           <div className="cred-ruled-list">
             {featured.map((item) => (

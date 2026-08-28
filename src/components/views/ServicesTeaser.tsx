@@ -114,7 +114,7 @@ export default function ServicesTeaser() {
     <section id="services" className="svc-teaser-section" ref={sectionRef}>
       <div className="svc-teaser-bg-grid" aria-hidden="true" />
       <div className="svc-teaser-header">
-        <div className="svc-teaser-badge-num">06</div>
+        <div className="svc-teaser-badge-num">05</div>
         <h2 className="svc-teaser-headline">
           Services // <span className="accent">What I Build</span>
         </h2>
