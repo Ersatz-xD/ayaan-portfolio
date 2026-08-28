@@ -99,7 +99,7 @@ export default function Hero() {
           <div className={`hero-stats${contentVisible ? " show" : ""}`}>
             <span className="stats-label">Snapshot</span>
             <div className="stat-row">
-              <span className="stat-num">15</span>
+              <span className="stat-num">16</span>
               <span className="stat-key">Projects shipped</span>
             </div>
             <div className="stat-row">

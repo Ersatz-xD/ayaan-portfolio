@@ -12,6 +12,22 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    id: "pest-or-pollinator",
+    title: "PestOrPollinator: Ecological Latent Space Engine",
+    date: "Jul 2026",
+    category: "ai",
+    tech: ["ResNet50", "PCA", "UMAP", "Streamlit", "Logistic Regression"],
+    metric: "~95% Compute Reduction",
+    githubUrl: "https://github.com/Ersatz-xD/PestOrPollinator",
+    description:
+      "Built an end-to-end ML pipeline and Streamlit app for insect classification, visual neighbor retrieval via ResNet50 latent embeddings, and UMAP topological mapping.",
+      
+    images: [
+      "/assets/projects_preview/pop-1.jpg",
+      "/assets/projects_preview/pop-2.jpg"
+    ]
+  },
+  {
     id: "pearl-aqi",
     title: "Pearl AQI Engine",
     date: "Jun 2026",
@@ -21,10 +37,6 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/Ersatz-xD/Pearl-AQI-Engine",
     description:
       "Architected a serverless MLOps pipeline for automated CI/CD and built a FastAPI/React dashboard using TreeSHAP for explainable 72-hour AQI forecasts.",
-    images: [
-      "/assets/projects_preview/pop-1.jpg",
-      "/assets/projects_preview/pop-2.jpg"
-    ]
   },
   {
     id: "prof-gpt",
@@ -229,8 +241,11 @@ export const PROJECTS: Project[] = [
 ];
 
 export const FEATURED_PROJECT_IDS = [
+  "pest-or-pollinator",
   "pearl-aqi",
   "prof-gpt",
   "redacted-vault",
+  "acm-website",
   "padhlo-ai",
+  
 ];
