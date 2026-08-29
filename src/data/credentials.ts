@@ -323,7 +323,7 @@ export const CREDENTIALS: Credential[] = [
   {
     id: "web-bootcamp-cert",
     title: "GDGoC CUI Web Development Bootcamp",
-    issuer: "Google Developer Groups on Campus — COMSATS Wah",
+    issuer: "Google Developer Groups on Campus — COMSATS Isb",
     date: "2025",
     category: "fullstack",
     description: "Intensive bootcamp covering modern frontend frameworks, REST API integration, and deployment workflows.",
