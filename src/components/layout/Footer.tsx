@@ -32,7 +32,7 @@ export default function Footer() {
   <Link to="/credentials">Credentials</Link>
 </nav>
         </nav>
-        <span className="footer-meta">© {new Date().getFullYear()} Ayaan Ahmed Khan — Built with React &amp; TypeScript</span>
+        
       </div>
     </footer>
   );
