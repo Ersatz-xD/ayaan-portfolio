@@ -24,16 +24,7 @@ export default function Footer() {
         </a>
       </div>
 
-      <div className="footer-bottom">
-        <nav className="footer-nav" aria-label="Footer navigation">
-          
-          <nav className="footer-nav" aria-label="Footer navigation">
-  <Link to="/projects">All Projects</Link>
-  <Link to="/credentials">Credentials</Link>
-</nav>
-        </nav>
-        
-      </div>
+      
     </footer>
   );
 }
